@@ -18,7 +18,7 @@ export const Hero = () => {
       ref={ref}
       className="min-h-screen flex items-center justify-start px-6 relative"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent pointer-events-none" />
 
       <div className="max-w-full sm:max-w-7xl mx-auto w-full relative z-10">
         <motion.div
