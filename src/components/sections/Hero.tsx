@@ -20,6 +20,7 @@ export const Hero = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent pointer-events-none" />
 
+
       <div className="max-w-full sm:max-w-7xl mx-auto w-full relative z-10">
         <motion.div
           className="max-w-4xl space-y-8"
@@ -28,7 +29,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           {/* Readability layer */}
-          <div className="inline-block rounded-3xl bg-background/25 backdrop-blur-md border border-white/10 p-6 md:p-8 shadow-2xl">
+          <div className="inline-block rounded-3xl bg-background/40 backdrop-blur-md border border-white/10 p-6 md:p-8 shadow-2xl">
             <div className="space-y-6">
               <motion.h1
                 className={`${quentine.className} text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)]`}
