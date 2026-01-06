@@ -1,41 +1,58 @@
 export const projectsData = [
   {
-    name: "AN",
+    name: "AI-Powered Audio Storytelling System",
     description:
-      "A personal portfolio built with a focus on performance, SEO, and analytics. Includes structured metadata, full integration with modern analytics tools, and scores 91+ in real-world performance tests.",
-    github_link: "https://github.com/aarabii/an",
-    demo: "https://aarab.vercel.app/",
-    tech: ["Framer Motion", "EmailJS", "Vercel Analytics"],
+      "End-to-end pipeline for long-form narrative audio generation using Bark TTS, featuring automated text segmentation, punctuation normalization, voice modulation, and chapter-wise audio assembly. Optimized with batching and GPU acceleration to produce multi-hour audiobooks with consistent pacing and quality control.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/yt_project_1",
+    demo: "",
+    tech: ["Python", "Bark TTS", "NLP", "Audio Processing"],
   },
   {
-    name: "Orphia",
+    name: "Medicinal Leaf Recognition System",
     description:
-      "An AI-powered music generator that turns text prompts into original soundtracks. Designed for musicians and content creators, it features a clean, modern UI and customizable music generation workflows.",
-    github_link: "https://github.com/aarabii/Orphia-AI-Music-Generator",
-    demo: "https://orphia.vercel.app/",
-    tech: ["Hugging Face", "Clerk", "API Integration"],
+      "Computer vision system using a custom EfficientNetB0 + BiFPN architecture to identify Indian medicinal plants with 94%+ accuracy. Deployed via Gradio with integrated Ayurvedic medicinal information and real-time inference.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/medicinal-leaf-recognition",
+    demo: "",
+    tech: ["PyTorch", "EfficientNet", "BiFPN", "Computer Vision", "Gradio"],
   },
   {
-    name: "Ideascribe",
+    name: "GPT-Powered Conversational AI Chatbot",
     description:
-      "A collaborative workspace that supports real-time editing, authentication, file uploads, and autosaving — all built to boost creativity and productivity in team environments.",
-    github_link: "https://github.com/aarabii/ideascribe",
-    demo: "https://ideascribe.vercel.app/",
-    tech: ["Convex", "Clerk", "Edgestore"],
+      "Production-grade chatbot built with fine-tuned GPT-2, featuring JWT-based authentication, Redis-backed multi-turn memory, caching, and a scalable Flask REST API for high concurrency.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/gpt-chatbot",
+    demo: "",
+    tech: ["Transformers", "Flask", "Redis", "JWT", "NLP"],
   },
   {
-    name: "CppTestGenAI",
+    name: "QR Finder (Lost Item Recovery System)",
     description:
-      "A smart test case generator for C++ projects, powered by LLMs. It analyzes source and header files, creates comprehensive test scenarios, and reduces manual testing time by up to 80%.",
-    github_link: "https://github.com/aarabii/CppTestGenAI",
-    tech: ["Ollama", "Caching", "Test Pipeline"],
+      "QR-based lost-item recovery platform with secure ID generation, SQLite-backed storage, and automated email notifications to reconnect owners with found items.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/qr-finder",
+    demo: "",
+    tech: ["Python", "Flask", "SQLite", "QR Codes", "Email Automation"],
   },
   {
-    name: "CraftoGram",
+    name: "To-Do Management System",
     description:
-      "An AI-driven tool for generating Instagram bios and content. Features dynamic prompt handling and real-time streaming output to help creators craft engaging profiles effortlessly.",
-    github_link: "https://github.com/aarabii/crafto",
-    demo: "https://craftogram.vercel.app/",
-    tech: ["Groq", "Vercel AI SDK", "Zod"],
+      "Full-stack to-do management application with REST API and responsive UI, including persistent storage, scripted database seeding, and mentor-ready demo features.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/todo-management",
+    demo: "",
+    tech: ["Node.js", "REST API", "Database", "Vite"],
+  },
+  {
+    name: "Reddit Stories to TTS Automation",
+    description:
+      "Automated pipeline that scrapes Reddit content, converts structured scripts into narrated audio using gTTS, and bundles outputs into downloadable ZIP archives.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/reddit-tts-pipeline",
+    demo: "",
+    tech: ["Python", "Web Scraping", "gTTS", "Automation"],
+  },
+  {
+    name: "Planet Ayurveda Herb Data Scraper",
+    description:
+      "Python-based scraper that extracts structured medicinal herb data from Planet Ayurveda and exports it into CSV datasets for analysis and ML use.",
+    github_link: "https://github.com/YOUR_GITHUB_USERNAME/ayurveda-scraper",
+    demo: "",
+    tech: ["Python", "Web Scraping", "Data Extraction"],
   },
 ];
