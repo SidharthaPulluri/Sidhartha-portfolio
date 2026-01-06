@@ -61,44 +61,34 @@ export function EmailTemplate({
           <Section style={header}>
             <Row>
               <Column style={{ width: "40px" }}>
+                {/* Use your deployed site logo */}
                 <Img
-                  src="https://raw.githubusercontent.com/aarabii/An/refs/heads/master/public/images/logo.png"
-                  alt="AN"
+                  src={`${selfData.site_url ?? ""}/images/logo.png`}
+                  alt={`${selfData.name} Logo`}
                   width="40"
                   height="40"
                 />
               </Column>
               <Column>
-                <Text style={brandText}>Aarab Nishchal</Text>
+                <Text style={brandText}>{selfData.name}</Text>
               </Column>
             </Row>
           </Section>
 
           <Section>
-            <Text style={heading}>Hey {userName}! 🚀</Text>
-            <Text style={text}>
-              Thanks a bunch for reaching out! 🎉 <br />
-              Your message just landed safely in my inbox, and I&apos;ve already
-              notified the caffeine team (aka me) to get on it ASAP.
-            </Text>
+            <Text style={heading}>Hi {userName},</Text>
 
             <Text style={text}>
-              Here&apos;s a quick recap of what you sent, in case you forgot (or
-              your cat walked across the keyboard):
+              Thank you for reaching out via my portfolio site. I have received
+              your message and will respond as soon as possible.
             </Text>
 
             <Text style={label}>
-              📌 Reason to Contact: <strong>{contactReason}</strong>
+              Reason for contact: <strong>{contactReason}</strong>
             </Text>
 
-            <Text style={label}>💬 Message:</Text>
+            <Text style={label}>Message:</Text>
             <pre style={codeBlock}>{userMessage}</pre>
-
-            <Text style={text}>
-              I&apos;ll get back to you soon probably sooner than your food
-              delivery app says &quot;just 10 more minutes.&quot; 🍕
-            </Text>
-
             <Section style={socialSection}>
               <table style={socialTable}>
                 <tbody>
@@ -122,9 +112,8 @@ export function EmailTemplate({
             </Section>
 
             <Text style={footerText}>
-              You&apos;re receiving this email because you contacted me via my
-              site. If that wasn&apos;t you... it might&apos;ve been your cat
-              again 🐾
+              You’re receiving this email because a message was submitted through
+              my portfolio contact form.
             </Text>
           </Section>
         </Container>
@@ -133,6 +122,9 @@ export function EmailTemplate({
   );
 }
 
+/**
+ * Styles
+ */
 const main: React.CSSProperties = {
   background: "radial-gradient(125% 125% at 50% 10%, #000 40%, #6633ee 100%)",
   padding: "40px 20px",

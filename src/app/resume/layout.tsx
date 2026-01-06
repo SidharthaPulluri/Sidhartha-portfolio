@@ -2,31 +2,42 @@ import type { Metadata } from "next";
 import { resumeKeywords } from "@/constant";
 import { generateResumeStructuredData } from "@/lib/structured-data";
 
+const SITE_URL = "https://sidhartha-portfolio-three.vercel.app";
+const RESUME_PDF_PATH = "/docs/Sidhartha_Pulluri_Resume.pdf";
+
 export const metadata: Metadata = {
-  title: "Resume - Aarab Nishchal",
+  title: "Resume - Sidhartha Pulluri",
   description:
-    "View and download Aarab Nishchal's professional resume. Student developer with expertise in React, Next.js, and full-stack development.",
+    "View and download Sidhartha Pulluri's resume. Focused on AI/ML, computer vision, NLP, and production-ready full-stack systems.",
   keywords: resumeKeywords,
+
+  alternates: {
+    canonical: `${SITE_URL}/resume`,
+  },
+
   openGraph: {
-    title: "Resume - Aarab Nishchal",
+    title: "Resume - Sidhartha Pulluri",
     description:
-      "View and download Aarab Nishchal's professional resume featuring his experience and skills as a student developer.",
-    url: "https://aarab.vercel.app/resume",
-    siteName: "Aarab Nishchal",
+      "View and download Sidhartha Pulluri's resume, including experience, projects, and technical skills across AI/ML and full-stack development.",
+    url: `${SITE_URL}/resume`,
+    siteName: "Sidhartha Pulluri",
     images: [
       {
         url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Aarab Nishchal Resume",
+        alt: "Sidhartha Pulluri Resume",
       },
     ],
+    type: "website",
+    locale: "en_US",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Resume - Aarab Nishchal",
+    title: "Resume - Sidhartha Pulluri",
     description:
-      "View Aarab Nishchal's professional resume and experience as a student developer.",
+      "View Sidhartha Pulluri's resume, showcasing AI/ML work, projects, and full-stack engineering experience.",
     images: ["/images/thumbnail.png"],
   },
 };
@@ -40,19 +51,23 @@ export default function ResumeLayout({
 
   return (
     <>
+      {/* Preload resume PDF for faster viewing */}
       <link
         rel="preload"
-        href="/docs/Aarab_Nishchal_Resume.pdf"
+        href={RESUME_PDF_PATH}
         as="fetch"
         type="application/pdf"
         crossOrigin="anonymous"
       />
+
+      {/* Structured data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(resumeStructuredData),
         }}
       />
+
       {children}
     </>
   );

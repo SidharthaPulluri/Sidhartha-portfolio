@@ -45,4 +45,6 @@ export const selfData = {
     snapchat: "",
     telegram: "",
   },
+  site_url: "https://sidhartha-portfolio-three.vercel.app",
 };
+

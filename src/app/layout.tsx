@@ -15,28 +15,28 @@ import {
 } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  applicationName: "Aarab Nishchal",
-  title: "Aarab Nishchal",
+  applicationName: "Sidhartha Pulluri",
+  title: "Sidhartha Pulluri",
   description:
-    "Aarab Nishchal is a student developer passionate about building modern web apps with Next.js, React, and open-source tools. Explore his projects, experiments, and developer portfolio.",
+    "Sidhartha Pulluri is a student developer passionate about building modern web apps with Next.js, React, and open-source tools. Explore his projects, experiments, and developer portfolio.",
   authors: [
     {
-      name: "Aarab Nishchal",
-      url: "https://aarab.vercel.app",
+      name: "Sidhartha Pulluri",
+      url: "https://sidhartha-portfolio-three.vercel.app/",
     },
   ],
-  creator: "Aarab Nishchal",
+  creator: "Sidhartha Pulluri",
   referrer: "origin-when-cross-origin",
   category: "Portfolio",
   classification: "Software Development",
   keywords: keywords,
-  metadataBase: new URL("https://aarab.vercel.app"),
+  metadataBase: new URL("https://sidhartha-portfolio-three.vercel.app/"),
 
 
   alternates: {
-    canonical: "https://aarab.vercel.app",
+    canonical: "https://sidhartha-portfolio-three.vercel.app/",
     languages: {
-      "en-US": "https://aarab.vercel.app",
+      "en-US": "https://sidhartha-portfolio-three.vercel.app/",
     },
   },
   robots: {
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
     google: "google-site-verification-code",
     yandex: "yandex-verification-code",
     other: {
-      "me": ["mailto:aarab.nishchal@gmail.com"],
+      "me": ["mailto:Sidartha.a.1729@gmail.com"],
     },
   },
   appleWebApp: {
     capable: true,
-    title: "Aarab Nishchal",
+    title: "Sidhartha Pulluri",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
@@ -96,17 +96,17 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 
   openGraph: {
-    title: "Aarab Nishchal | Student Developer & Creative Coder",
+    title: "Sidhartha Pulluri | Student Developer & Creative Coder",
     description:
-      "Explore Aarab Nishchal’s portfolio featuring projects in React, Next.js, AI, and developer tools. Discover a world of creative web applications and open-source experiments.",
-    url: "https://aarab.vercel.app",
-    siteName: "Aarab Nishchal",
+      "Explore Sidhartha Pulluri’s portfolio featuring projects in React, Next.js, AI, and developer tools. Discover a world of creative web applications and open-source experiments.",
+    url: "https://sidhartha-portfolio-three.vercel.app/",
+    siteName: "Sidhartha Pulluri",
     images: [
       {
         url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Aarab Nishchal Portfolio Thumbnail",
+        alt: "Sidhartha Pulluri Portfolio Thumbnail",
       },
     ],
     locale: "en_US",
@@ -119,11 +119,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Aarab Nishchal | Student Developer",
+    title: "Sidhartha Pulluri | Student Developer",
     description:
-      "Check out Aarab Nishchal’s personal portfolio and dev projects using Next.js, React, Tailwind, and modern web tech.",
+      "Check out Sidhartha Pulluri’s personal portfolio and dev projects using Next.js, React, Tailwind, and modern web tech.",
     images: ["/images/thumbnail.png"],
-    creator: "@aarab_ii",
   },
 };
 
