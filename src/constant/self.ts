@@ -12,7 +12,7 @@ export const selfData = {
   DOB: {
     dd: 17,
     mm: 2,
-    yyyy: 2004, // adjust if needed
+    yyyy: 2004,
   },
   email: "Sidhartha.a.1729@gmail.com",
 
@@ -23,6 +23,12 @@ export const selfData = {
     "AI Systems Builder",
     "Deep Learning Engineer",
     "Research-Oriented Developer",
+  ],
+
+  focus_areas: [
+    "Applied AI systems",
+    "Computer vision pipelines",
+    "Automation and tooling",
   ],
 
   desc: "I design and build intelligent systems that turn research into real-world AI products.",
@@ -36,8 +42,8 @@ export const selfData = {
   ],
 
   socials_username: {
-    github: "YOUR_GITHUB_USERNAME",
-    linkedin: "YOUR_LINKEDIN_USERNAME",
+    github: "SidharthaPulluri",
+    linkedin: "sidhartha-pulluri",
     twitter: "",
     instagram: "",
     facebook: "",
@@ -47,4 +53,3 @@ export const selfData = {
   },
   site_url: "https://sidhartha-portfolio-three.vercel.app",
 };
-

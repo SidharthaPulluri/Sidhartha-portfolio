@@ -4,7 +4,6 @@ import {
   FaGitAlt,
   FaGithub,
   FaPython,
-  FaJava,
   FaLaptopCode,
   FaRobot,
   FaGaugeHigh,
@@ -42,7 +41,6 @@ export const skillsData: SkillsDataProps[] = [
     data: [
       { title: "Python", logoComponent: FaPython, color: "#3776AB" },
       { title: "C++", logoComponent: TbBrandCpp, color: "#00599C" },
-      { title: "Java", logoComponent: FaJava, color: "#007396" },
       { title: "SQL", logoComponent: SiMysql, color: "#4479A1" },
     ],
   },

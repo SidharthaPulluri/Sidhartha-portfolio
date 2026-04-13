@@ -1,7 +1,5 @@
 import { FC, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 
 interface ExperienceCardProps {
@@ -24,7 +22,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
   const ref = useRef(null);
 
   const isInView = useInView(ref, {
-    once: false,
+    once: true,
     margin: "-50px",
     amount: 0.2,
   });
@@ -33,157 +31,62 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
     <motion.div
       ref={ref}
       key={index}
-      initial={{ opacity: 0, x: -50, scale: 0.95 }}
-      animate={
-        isInView
-          ? { opacity: 1, x: 0, scale: 1 }
-          : { opacity: 0, x: -50, scale: 0.95 }
-      }
+      initial={{ opacity: 0, y: 28 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.45,
+        delay: index * 0.08,
+        ease: [0.22, 1, 0.36, 1],
       }}
-      whileHover={{
-        scale: 1.02,
-        y: -8,
-        transition: {
-          duration: 0.3,
-          type: "spring" as const,
-          stiffness: 400,
-          damping: 25,
-        },
-      }}
-      className="relative flex items-start space-x-8 group"
+      className="relative pl-8 sm:pl-10"
     >
-      {/* Timeline dot */}
-      <motion.div
-        className="mt-6 flex-shrink-0"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-      >
-        <div className="w-4 h-4 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-background shadow-lg" />
-        <div className="w-px h-20 bg-gradient-to-b from-primary/50 to-transparent mx-auto mt-2" />
-      </motion.div>
-
-      {/* Content */}
-      <motion.div className="flex-1">
-        <Card
-          className="relative overflow-hidden backdrop-blur-xl border transition-all duration-500 shadow-xl hover:shadow-2xl group-hover:shadow-luxury-hover-glow/20"
-          style={{
-            background: "hsl(var(--glass-bg))",
-            borderColor: "hsl(var(--glass-border))",
-          }}
+      <span className="absolute left-0 top-7 h-3.5 w-3.5 rounded-full border-2 border-background bg-primary" />
+      <article className="surface p-6 sm:p-7">
+        <motion.div
+          className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
+          initial={{ opacity: 0, y: 12 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: index * 0.08 + 0.08 }}
         >
-          {/* Glass shimmer effect */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-            style={{ background: "var(--shimmer)" }}
-            initial={{ x: "-100%" }}
-            whileHover={{ x: "200%" }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-
-          <div className="relative z-10 p-6">
-            <motion.div
-              className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-            >
-              <div>
-                <h3
-                  className="text-xl font-semibold font-nasalization mb-1"
-                  style={{ color: "hsl(var(--primary))" }}
-                >
-                  {role}
-                </h3>
-                <p
-                  className="font-medium"
-                  style={{ color: "hsl(var(--secondary))" }}
-                >
-                  {company}
-                </p>
-              </div>
-              <span
-                className="text-sm mt-2 sm:mt-0"
-                style={{ color: "hsl(var(--muted-foreground))" }}
-              >
-                {year}
-              </span>
-            </motion.div>
-
-            <motion.ul
-              className="space-y-2"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-            >
-              {description.map((point, pointIndex) => (
-                <motion.li
-                  key={pointIndex}
-                  className="text-xs font-inter flex items-start"
-                  style={{ color: "hsl(var(--foreground) / 0.8)" }}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={
-                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
-                  }
-                  transition={{
-                    duration: 0.4,
-                    delay: index * 0.1 + 0.5 + pointIndex * 0.1,
-                  }}
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
-                    style={{ backgroundColor: "hsl(var(--accent))" }}
-                  />
-                  {point}
-                </motion.li>
-              ))}
-            </motion.ul>
-
-            <motion.div
-              className="flex flex-wrap gap-2 mt-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
-            >
-              {technologies.map((tech, techIndex) => (
-                <motion.div
-                  key={techIndex}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.8 }
-                  }
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.1 + 0.5 + techIndex * 0.05,
-                    type: "spring" as const,
-                    stiffness: 300,
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Badge
-                    variant="outline"
-                    className="text-xs transition-all duration-300 hover:shadow-md font-mono px-3 py-1"
-                    style={{
-                      borderColor: "hsl(var(--primary) / 0.3)",
-                      color: "hsl(var(--foreground) / 0.9)",
-                      backgroundColor: "hsl(var(--primary) / 0.1)",
-                      borderRadius: "0.5rem",
-                    }}
-                  >
-                    {tech}
-                  </Badge>
-                </motion.div>
-              ))}
-            </motion.div>
+          <div>
+            <p className="metric-label">{year}</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">{role}</h3>
+            <p className="mt-1 text-base text-primary">{company}</p>
           </div>
-        </Card>
-      </motion.div>
+          <span className="info-chip self-start">{technologies[0]}</span>
+        </motion.div>
+
+        <motion.ul
+          className="mt-6 space-y-3"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.35, delay: index * 0.08 + 0.14 }}
+        >
+          {description.map((point, pointIndex) => (
+            <li key={pointIndex} className="flex items-start gap-3 text-sm leading-7 text-muted-foreground sm:text-[0.96rem]">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </motion.ul>
+
+        <motion.div
+          className="mt-6 flex flex-wrap gap-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.35, delay: index * 0.08 + 0.18 }}
+        >
+          {technologies.map((tech) => (
+            <Badge
+              key={tech}
+              variant="outline"
+              className="rounded-full border-white/10 bg-white/[0.03] px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
+            >
+              {tech}
+            </Badge>
+          ))}
+        </motion.div>
+      </article>
     </motion.div>
   );
 };

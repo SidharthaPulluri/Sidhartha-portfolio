@@ -28,6 +28,7 @@ export default function Resume() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const PDF_URL = "docs/Sidhartha_Pulluri_Resume.pdf";
+  const PDF_PREVIEW_URL = `${PDF_URL}#toolbar=0&navpanes=0&scrollbar=1&view=FitV&zoom=85`;
 
 
 
@@ -89,21 +90,21 @@ export default function Resume() {
       <Background />
       <Navbar />
 
-      <div className="container mx-auto px-4 pt-32 pb-20">
+      <div className="container mx-auto max-w-6xl px-4 pt-32 pb-20">
         <motion.div
           className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-secondary mb-2">
-              Resume
-            </h1>
-            <p className="text-muted-foreground">
-              View or download my resume
-            </p>
-          </div>
+            <div className="text-center md:text-left max-w-2xl">
+              <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-secondary mb-2">
+                Resume
+              </h1>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                View a contained preview here, or open the PDF in a new tab for the full document.
+              </p>
+            </div>
 
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
@@ -171,17 +172,13 @@ export default function Resume() {
           </motion.div>
 
           <motion.div
-            className="relative overflow-hidden rounded-3xl shadow-2xl z-10"
+            className="relative z-10 mx-auto w-full max-w-[980px] overflow-hidden rounded-3xl shadow-2xl"
             initial={{ opacity: 0, y: 60, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               duration: 1,
               delay: 1.4,
               ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.3 },
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-card/20 to-card/30 backdrop-blur-xl pointer-events-none" />
@@ -191,24 +188,25 @@ export default function Resume() {
             <PDFErrorBoundary pdfUrl={PDF_URL}>
               <motion.div
                 className="pdf-container relative w-full overflow-hidden bg-white/95 backdrop-blur-sm rounded-3xl"
-                style={{ height: "800px" }}
+                style={{ height: "780px" }}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
               >
                 <div className="pdf-viewer">
                   <div
-                    className="flex justify-center items-start min-h-full p-4"
+                    className="flex justify-center items-start min-h-full p-4 sm:p-6"
                   >
                     <iframe
-                      src={`${PDF_URL}#view=FitH&toolbar=0&navpanes=0&scrollbar=1`}
+                      src={PDF_PREVIEW_URL}
                       width="100%"
-                      height="780px"
-                      className="border-0 shadow-lg rounded-lg"
+                      height="730px"
+                      className="border-0 shadow-lg rounded-2xl"
                       title="Resume PDF"
                       style={{
-                        maxWidth: "100%",
-                        minHeight: "600px",
+                        maxWidth: "920px",
+                        width: "100%",
+                        minHeight: "620px",
                         background: "#ffffff",
                       }}
                       allow="fullscreen"

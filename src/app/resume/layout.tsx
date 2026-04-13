@@ -1,43 +1,41 @@
 import type { Metadata } from "next";
-import { resumeKeywords } from "@/constant";
+
+import { resumeKeywords, selfData } from "@/constant";
 import { generateResumeStructuredData } from "@/lib/structured-data";
 
-const SITE_URL = "https://sidhartha-portfolio-three.vercel.app";
+const SITE_URL = selfData.site_url;
 const RESUME_PDF_PATH = "/docs/Sidhartha_Pulluri_Resume.pdf";
 
 export const metadata: Metadata = {
   title: "Resume - Sidhartha Pulluri",
   description:
-    "View and download Sidhartha Pulluri's resume. Focused on AI/ML, computer vision, NLP, and production-ready full-stack systems.",
+    "View and download Sidhartha Pulluri's resume, focused on AI systems, applied machine learning, and modern software engineering.",
   keywords: resumeKeywords,
-
   alternates: {
     canonical: `${SITE_URL}/resume`,
   },
-
   openGraph: {
     title: "Resume - Sidhartha Pulluri",
     description:
-      "View and download Sidhartha Pulluri's resume, including experience, projects, and technical skills across AI/ML and full-stack development.",
+      "View Sidhartha Pulluri's resume, including selected experience, projects, and technical strengths across AI and software engineering.",
     url: `${SITE_URL}/resume`,
-    siteName: "Sidhartha Pulluri",
+    siteName: selfData.name,
     images: [
       {
         url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Sidhartha Pulluri Resume",
+        alt: "Sidhartha Pulluri resume preview",
       },
     ],
     type: "website",
     locale: "en_US",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Resume - Sidhartha Pulluri",
     description:
-      "View Sidhartha Pulluri's resume, showcasing AI/ML work, projects, and full-stack engineering experience.",
+      "Resume preview for Sidhartha Pulluri, covering AI, ML, automation, and product engineering work.",
     images: ["/images/thumbnail.png"],
   },
 };
@@ -51,7 +49,6 @@ export default function ResumeLayout({
 
   return (
     <>
-      {/* Preload resume PDF for faster viewing */}
       <link
         rel="preload"
         href={RESUME_PDF_PATH}
@@ -60,7 +57,6 @@ export default function ResumeLayout({
         crossOrigin="anonymous"
       />
 
-      {/* Structured data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

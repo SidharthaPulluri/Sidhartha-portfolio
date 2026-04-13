@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconType } from "react-icons";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 import { SiLeetcode } from "react-icons/si";
 import { PiTelegramLogo } from "react-icons/pi";
@@ -11,40 +11,46 @@ import { selfData } from "@/constant";
 export const ContactSocials = () => {
   const socialLinks = [
     {
+      label: "GitHub",
       Icon: FaGithub,
       link: `https://github.com/${selfData.socials_username.github}`,
-      initial: -10,
+      enabled: Boolean(selfData.socials_username.github),
     },
     {
+      label: "LinkedIn",
       Icon: FaLinkedinIn,
       link: `https://www.linkedin.com/in/${selfData.socials_username.linkedin}`,
-      initial: 10,
+      enabled: Boolean(selfData.socials_username.linkedin),
     },
     {
+      label: "Telegram",
       Icon: PiTelegramLogo,
       link: `https://t.me/${selfData.socials_username.telegram}`,
-      initial: -10,
+      enabled: Boolean(selfData.socials_username.telegram),
     },
     {
+      label: "Twitter",
       Icon: FaTwitter,
       link: `https://twitter.com/${selfData.socials_username.twitter}`,
-      initial: 10,
+      enabled: Boolean(selfData.socials_username.twitter),
     },
     {
+      label: "LeetCode",
       Icon: SiLeetcode,
       link: `https://leetcode.com/${selfData.socials_username.leetcode}`,
-      initial: -10,
+      enabled: Boolean(selfData.socials_username.leetcode),
     },
-  ];
+  ].filter((item) => item.enabled);
 
   return (
-    <ul className="flex mt-12 space-x-4">
+    <ul className="mt-6 flex flex-wrap gap-3">
       {socialLinks.map((social, index) => (
         <ContactSocialItem
-          key={index}
+          key={social.label}
           Icon={social.Icon}
           link={social.link}
-          initial={social.initial}
+          label={social.label}
+          index={index}
         />
       ))}
     </ul>
@@ -54,34 +60,32 @@ export const ContactSocials = () => {
 const ContactSocialItem = ({
   Icon,
   link,
-  initial,
+  label,
+  index,
 }: {
   Icon: IconType;
   link: string;
-  initial: number;
+  label: string;
+  index: number;
 }) => {
   return (
     <motion.li
       whileInView={{ opacity: 1, y: 0 }}
-      initial={{ opacity: 0, y: initial }}
+      initial={{ opacity: 0, y: 12 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.5,
-        type: "spring",
-        stiffness: 400,
-        damping: 10,
+        duration: 0.35,
+        delay: index * 0.06,
       }}
-      whileHover={{
-        scale: 1.1,
-      }}
-      className="bg-purple-700 text-slate-300 hover:bg-slate-400 hover:text-purple-700 h-10 w-10 rounded-full flex items-center justify-center shrink-0"
     >
       <Link
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center"
+        className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-foreground transition hover:border-primary/30 hover:bg-white/[0.08]"
       >
-        <Icon className="text-slate-300 hover:text-purple-700 w-6 h-6" />
+        <Icon className="h-4 w-4 text-primary" />
+        {label}
       </Link>
     </motion.li>
   );

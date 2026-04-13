@@ -1,7 +1,6 @@
 import { selfData, skillsData } from "@/constant";
 
-const SITE_URL = "https://sidhartha-portfolio-three.vercel.app";
-const LOGO_URL = `${SITE_URL}/images/logo.png`;
+const SITE_URL = selfData.site_url;
 const RESUME_URL = `${SITE_URL}/resume`;
 const RESUME_PDF_URL = `${SITE_URL}/docs/Sidhartha_Pulluri_Resume.pdf`;
 
@@ -23,13 +22,10 @@ export function generatePersonStructuredData() {
           name: selfData.workFor,
         }
       : undefined,
-
-    // Update to your actual education (UT Dallas)
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "The University of Texas at Dallas",
     },
-
     email: selfData.email,
     address: {
       "@type": "PostalAddress",
@@ -54,7 +50,6 @@ export function generatePersonStructuredData() {
         ? `https://leetcode.com/${selfData.socials_username.leetcode}`
         : undefined,
     ].filter(Boolean),
-
     url: SITE_URL,
     description: selfData.bio,
     knowsAbout: skills,
@@ -68,7 +63,7 @@ export function generateWebsiteStructuredData() {
     name: `${selfData.name} - Portfolio`,
     url: SITE_URL,
     description:
-      "Portfolio showcasing projects and experience across AI/ML, computer vision, NLP, and full-stack engineering.",
+      "Portfolio showcasing AI systems, full-stack engineering, automation, and applied software projects.",
     author: {
       "@type": "Person",
       name: selfData.name,
@@ -92,7 +87,6 @@ export function generateOrganizationStructuredData() {
     "@type": "Organization",
     name: selfData.name,
     url: SITE_URL,
-    logo: LOGO_URL,
     description: selfData.bio,
     founder: {
       "@type": "Person",
@@ -121,7 +115,7 @@ export function generateResumeStructuredData() {
     "@type": "DigitalDocument",
     name: `${selfData.name} Resume`,
     description:
-      "Professional resume of Sidhartha Pulluri, highlighting experience and projects in AI/ML and full-stack engineering.",
+      "Professional resume of Sidhartha Pulluri, highlighting experience and projects in AI, ML, and product engineering.",
     url: RESUME_URL,
     author: {
       "@type": "Person",

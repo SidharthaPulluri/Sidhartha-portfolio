@@ -60,17 +60,12 @@ export function EmailTemplate({
         <Container style={container}>
           <Section style={header}>
             <Row>
-              <Column style={{ width: "40px" }}>
-                {/* Use your deployed site logo */}
-                <Img
-                  src={`${selfData.site_url ?? ""}/images/logo.png`}
-                  alt={`${selfData.name} Logo`}
-                  width="40"
-                  height="40"
-                />
+              <Column style={{ width: "58px" }}>
+                <Text style={brandBadge}>SP</Text>
               </Column>
               <Column>
                 <Text style={brandText}>{selfData.name}</Text>
+                <Text style={brandSubtext}>Portfolio contact acknowledgement</Text>
               </Column>
             </Row>
           </Section>
@@ -89,6 +84,7 @@ export function EmailTemplate({
 
             <Text style={label}>Message:</Text>
             <pre style={codeBlock}>{userMessage}</pre>
+
             <Section style={socialSection}>
               <table style={socialTable}>
                 <tbody>
@@ -112,8 +108,8 @@ export function EmailTemplate({
             </Section>
 
             <Text style={footerText}>
-              You’re receiving this email because a message was submitted through
-              my portfolio contact form.
+              You&apos;re receiving this email because a message was submitted
+              through my portfolio contact form.
             </Text>
           </Section>
         </Container>
@@ -122,14 +118,12 @@ export function EmailTemplate({
   );
 }
 
-/**
- * Styles
- */
 const main: React.CSSProperties = {
-  background: "radial-gradient(125% 125% at 50% 10%, #000 40%, #6633ee 100%)",
+  background:
+    "radial-gradient(circle at top, rgba(96, 165, 250, 0.18), transparent 38%), linear-gradient(180deg, #08111d 0%, #0f172a 52%, #111827 100%)",
   padding: "40px 20px",
-  fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-  color: "#ffffff",
+  fontFamily: "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  color: "#e5edf8",
   lineHeight: "1.5",
 };
 
@@ -144,11 +138,34 @@ const header: React.CSSProperties = {
   alignItems: "center",
 };
 
+const brandBadge: React.CSSProperties = {
+  width: "42px",
+  height: "42px",
+  lineHeight: "42px",
+  textAlign: "center",
+  borderRadius: "999px",
+  margin: "0",
+  fontSize: "16px",
+  fontWeight: "700",
+  letterSpacing: "0.08em",
+  color: "#dbeafe",
+  backgroundColor: "rgba(37, 99, 235, 0.22)",
+  border: "1px solid rgba(148, 163, 184, 0.35)",
+};
+
 const brandText: React.CSSProperties = {
   fontSize: "20px",
   fontWeight: "bold",
   marginLeft: "10px",
-  marginTop: "5px",
+  marginTop: "3px",
+  marginBottom: "2px",
+};
+
+const brandSubtext: React.CSSProperties = {
+  fontSize: "12px",
+  marginLeft: "10px",
+  marginTop: "0",
+  color: "#9fb2c9",
 };
 
 const heading: React.CSSProperties = {

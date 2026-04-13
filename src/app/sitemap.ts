@@ -1,11 +1,13 @@
 import { MetadataRoute } from "next";
 
+import { selfData } from "@/constant";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sidhartha-portfolio-three.vercel.app/";
+  const baseUrl = selfData.site_url;
 
   return [
     {
-      url: `${baseUrl}/`,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,

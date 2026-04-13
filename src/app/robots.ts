@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+import { selfData } from "@/constant";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -9,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api", "/private"],
       },
     ],
-    sitemap: "https://sidhartha-portfolio-three.vercel.app/sitemap.xml",
+    sitemap: `${selfData.site_url}/sitemap.xml`,
   };
 }

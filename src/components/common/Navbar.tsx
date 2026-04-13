@@ -1,17 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-
 import { RiMenu4Fill, RiCloseLargeFill } from "react-icons/ri";
-
-import { quentine } from "@/app/fonts";
-
 import { Button } from "../ui/button";
-import { createBlurDataURL } from "@/lib/BlurDataURL";
 import { selfData } from "@/constant";
+import { mono } from "@/app/fonts";
+
+const mainLinks = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
+  { href: "#project", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
 
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,115 +54,120 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        isScrolled ? "pt-0 px-2 sm:px-4" : "px-2 sm:px-2"
+        isScrolled ? "px-3 sm:px-4" : "px-3 sm:px-4"
       } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div
-        className={`floating-nav rounded-2xl px-4 sm:px-6 py-3 bg-glass-bg transition-all duration-300 max-w-7xl mx-auto ${
-          isScrolled ? "shadow-xl" : "shadow-lg"
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6 ${
+          isScrolled ? "shadow-lg" : "shadow-none"
         }`}
+        style={{
+          background: "hsl(var(--glass-bg-light))",
+          borderColor: "hsl(var(--glass-border))",
+        }}
       >
-        <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center space-x-2 sm:space-x-3 group"
-          >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-glass-bg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-              <Image
-                src="/images/logo.svg"
-                alt="logo"
-                width={40}
-                height={40}
-                placeholder="blur"
-                loading="lazy"
-                quality={100}
-                blurDataURL={`${createBlurDataURL({
-                  width: 40,
-                  height: 40,
-                })}`}
-                style={{
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-            <span
-              className={`${quentine.className} text-primary-foreground text-xl sm:text-base`}
-            >
+        <Link href="/" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+            SP
+          </div>
+          <div className="leading-none">
+            <span className="font-inter block text-lg font-semibold tracking-tight text-white sm:text-xl">
               {selfData.name}
             </span>
-          </Link>
-
-          <div className="hidden sm:block">
-            <Button
-              variant="outline"
-              asChild
-              className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200"
-            >
-              {isResumePage ? (
-                <a href="docs\Sidhartha_Pulluri_Resume.pdf" download="Sidhartha_Pulluri_Resume.pdf">
-                  Download Resume
-                </a>
-              ) : (
-                <Link href="/resume">
-                  Resume
-                </Link>
-              )}
-            </Button>
+            <span className={`${mono.className} hidden text-[0.72rem] uppercase tracking-[0.24em] text-muted-foreground sm:block`}>
+              AI / ML Portfolio
+            </span>
           </div>
+        </Link>
 
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="sm:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50"
-            aria-label="Toggle mobile menu"
+        {!isResumePage && (
+          <div className="hidden items-center gap-6 lg:flex">
+            {mainLinks.map((link) => (
+              <a key={link.href} href={link.href} className="anchor-link">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+
+        <div className="hidden items-center gap-3 sm:flex">
+          {!isResumePage && (
+            <Button variant="ghost" asChild className="rounded-full px-4 text-sm">
+              <a href="#contact">Hire Me</a>
+            </Button>
+          )}
+          <Button
+            variant={isResumePage ? "default" : "outline"}
+            asChild
+            className="rounded-full px-5"
           >
-            {isMenuOpen ? (
-              <RiCloseLargeFill
-                size={20}
-                className="transition-transform duration-200"
-              />
+            {isResumePage ? (
+              <a href="/docs/Sidhartha_Pulluri_Resume.pdf" download="Sidhartha_Pulluri_Resume.pdf">
+                Download Resume
+              </a>
             ) : (
-              <RiMenu4Fill
-                size={20}
-                className="transition-transform duration-200"
-              />
+              <Link href="/resume">Resume</Link>
             )}
-          </button>
+          </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`sm:hidden overflow-hidden transition-all duration-300 ease-out ${
-            isMenuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="sm:hidden rounded-full border border-white/10 p-2 text-foreground transition hover:bg-white/5"
+          aria-label="Toggle mobile menu"
         >
-          <div className="pt-4 pb-2 border-t border-border/50 mt-4">
-            <div className="space-y-3">
-              <Button
-                variant="outline"
-                asChild
-                className="w-full border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200"
+          {isMenuOpen ? <RiCloseLargeFill size={18} /> : <RiMenu4Fill size={18} />}
+        </button>
+      </div>
+
+      <div
+        className={`mx-auto mt-3 max-w-6xl overflow-hidden rounded-[1.5rem] border backdrop-blur-xl transition-all duration-300 sm:hidden ${
+          isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0 border-transparent"
+        }`}
+        style={{
+          background: "hsl(var(--glass-bg-light))",
+          borderColor: isMenuOpen ? "hsl(var(--glass-border))" : "transparent",
+        }}
+      >
+        <div className="space-y-2 px-4 py-4">
+          {!isResumePage &&
+            mainLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-white"
               >
-                {isResumePage ? (
-                  <a
-                    href="docs\Sidhartha_Pulluri_Resume.pdf"
-                    download="Sidhartha_Pulluri_Resume.pdf"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center justify-center"
-                  >
-                    Download Resume
-                  </a>
-                ) : (
-                  <Link
-                    href="/resume"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center justify-center"
-                  >
-                    Resume
-                  </Link>
-                )}
-              </Button>
-            </div>
-          </div>
+                {link.label}
+              </a>
+            ))}
+          {!isResumePage && (
+            <a
+              href="#contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-white"
+            >
+              Hire Me
+            </a>
+          )}
+          {isResumePage ? (
+            <a
+              href="/docs/Sidhartha_Pulluri_Resume.pdf"
+              download="Sidhartha_Pulluri_Resume.pdf"
+              onClick={() => setIsMenuOpen(false)}
+              className="block rounded-xl bg-primary px-3 py-2 text-sm font-medium text-primary-foreground"
+            >
+              Download Resume
+            </a>
+          ) : (
+            <Link
+              href="/resume"
+              onClick={() => setIsMenuOpen(false)}
+              className="block rounded-xl bg-primary px-3 py-2 text-sm font-medium text-primary-foreground"
+            >
+              View Resume
+            </Link>
+          )}
         </div>
       </div>
     </nav>

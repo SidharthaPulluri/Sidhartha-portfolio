@@ -1,185 +1,115 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { nasalization } from "@/app/fonts";
 import { selfData } from "@/constant";
 import Link from "next/link";
 import { LuMapPinned } from "react-icons/lu";
 
-
-
 export const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    once: false,
-    margin: "-60px",
-    amount: 0.2,
+    once: true,
+    margin: "-80px",
+    amount: 0.25,
   });
 
   return (
     <section
       ref={ref}
-      className="py-24 max-w-6xl mx-auto relative overflow-hidden"
+      id="about"
+      className="section-shell"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-x-hidden">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="page-shell">
+        <div className="mb-12 max-w-3xl">
+          <span className="eyebrow">About</span>
+          <h2 className="section-title mt-5">Research-minded engineering with a product mindset.</h2>
+          <p className="section-lead mt-5">
+            I work at the intersection of model quality, system design, and practical delivery. The goal is not just
+            to train something impressive, but to build something people can actually use.
+          </p>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <motion.div
-            className="flex justify-center md:justify-start"
-            initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+            className="surface p-7 sm:p-8"
+            initial={{ opacity: 0, x: -32 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{
-              duration: 0.7,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <motion.div
-              className="relative group"
-              whileHover={{
-                scale: 1.02,
-                y: -4,
-                transition: {
-                  duration: 0.3,
-                  type: "spring" as const,
-                  stiffness: 400,
-                  damping: 25,
-                },
-              }}
-            >
-              <div
-                className="w-full max-w-md h-80 rounded-2xl overflow-hidden relative glass-card border-2 group/image"
-                style={{ borderColor: "hsl(var(--glass-border))" }}
-              >
-                <motion.div
-                  initial={{ scale: 1.1, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className="relative w-full h-full"
-                >
-                  <Image
-                    src="/images/me.png"
-                    alt="Profile Picture"
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 448px"
-                    className="object-cover transition-all duration-700 ease-in-out filter grayscale group-hover/image:grayscale-0 group-hover/image:scale-105"
-                  />
+            <p className="metric-label">Snapshot</p>
+            <div className="section-divider" />
+            <div className="space-y-1">
+              {[
+                ["Program", "Computer Science graduate student"],
+                ["University", selfData.workFor],
+                [
+                  "Location",
+                  `${selfData.current_location.city}, ${selfData.current_location.state}, ${selfData.current_location.country}`,
+                ],
+                ["Specialties", "AI, ML, computer vision, NLP"],
+              ].map(([label, value]) => (
+                <div key={label} className="metric-line">
+                  <span className="metric-label">{label}</span>
+                  <span className="metric-value max-w-[14rem] text-left sm:text-right">{value}</span>
+                </div>
+              ))}
+            </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover/image:opacity-100 transition-opacity duration-700" />
-                </motion.div>
-              </div>
-            </motion.div>
+            <div className="surface-muted mt-8 p-5">
+              <p className="metric-label">Approach</p>
+              <p className="mt-3 text-base leading-8 text-foreground">
+                I like work that connects research quality, usable interfaces, and dependable delivery.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
             className="space-y-8"
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 32 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{
-              duration: 0.7,
+              duration: 0.65,
               delay: 0.2,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.4,
-                ease: "easeOut",
-              }}
-            >
-              <h2
-                className={`${nasalization.className} text-4xl md:text-5xl font-bold relative`}
-                style={{ color: "hsl(var(--primary))" }}
-              >
-                About Me
-              </h2>
-            </motion.div>
-
-            <motion.div
-              className="space-y-6 leading-relaxed"
-              style={{ color: "hsl(var(--foreground) / 0.8)" }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
+            <div className="surface p-7 sm:p-8">
+              <div className="space-y-5 leading-8 text-muted-foreground">
               {selfData.about.map((paragraph, index) => (
                 <motion.p
                   key={index}
-                  className="text-xs hover:text-primary-foreground transition-colors duration-200"
+                  className="text-sm sm:text-base"
                   initial={{ opacity: 0, y: 15 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }
-                  }
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{
-                    duration: 0.5,
-                    delay: 0.6 + index * 0.1,
+                    duration: 0.45,
+                    delay: 0.25 + index * 0.1,
                     ease: "easeOut",
-                  }}
-                  whileHover={{
-                    x: 4,
-                    transition: { duration: 0.2 },
                   }}
                 >
                   {paragraph}
                 </motion.p>
               ))}
-            </motion.div>
+              </div>
 
-            <motion.div
-              className="flex items-center gap-4 text-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.8,
-                ease: "easeOut",
-              }}
-            >
-              <motion.div
-                whileHover={{
-                  scale: 1.05,
-                  y: -2,
-                  transition: { duration: 0.3 },
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={`https://www.google.com/maps/place/${selfData.current_location.city}+${selfData.current_location.state}+${selfData.current_location.country}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-3 rounded-full border border-primary/20 hover:border-primary/50 group transition-all duration-300"
+                  className="info-chip hover:text-white"
                 >
-                  <motion.div
-                    animate={
-                      isInView ? { rotate: [0, -8, 8, 0] } : { rotate: 0 }
-                    }
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: 1.5,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <LuMapPinned
-                      className="w-4 h-4 transition-colors group-hover:scale-110"
-                      style={{ color: "hsl(var(--primary))" }}
-                    />
-                  </motion.div>
-                  <span
-                    className="transition-colors"
-                    style={{ color: "hsl(var(--foreground))" }}
-                  >
-                    {selfData.current_location.city},{" "}
-                    {selfData.current_location.state}
-                  </span>
+                  <LuMapPinned className="h-4 w-4 text-primary" />
+                  {selfData.current_location.city}, {selfData.current_location.state}
                 </Link>
-              </motion.div>
-            </motion.div>
+                <span className="info-chip">{selfData.jobTitle}</span>
+                <span className="info-chip">{selfData.workFor}</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

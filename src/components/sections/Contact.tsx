@@ -1,76 +1,68 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { IconType } from "react-icons";
-import { useRef } from "react";
 
 import { IoLocationOutline, IoMailOutline } from "react-icons/io5";
 
 import { selfData } from "@/constant";
-import { nasalization } from "@/app/fonts";
 import { ContactFormCard, ContactSocials } from "@/components/Cards";
 
 export const Contact = () => {
-  const ref = useRef(null);
-
   return (
     <section
-      ref={ref}
       id="contact"
-      className="py-24 max-w-6xl mx-auto relative overflow-hidden"
+      className="section-shell"
     >
-      <div className="px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="page-shell">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 max-w-3xl"
         >
-          <motion.h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 relative ${nasalization.className}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            style={{ color: "hsl(var(--primary))" }}
-          >
-            Let&apos;s Connect
-          </motion.h2>
+          <span className="eyebrow">Contact</span>
+          <h2 className="section-title mt-5">Let&apos;s talk about AI, applied ML, or product-focused engineering work.</h2>
+          <p className="section-lead mt-5">
+            If you&apos;re hiring, collaborating, or just want to discuss a project, this is the easiest place to reach me.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Contact Form */}
           <ContactFormCard />
 
-          {/* Contact Information */}
           <div className="space-y-8">
-            {/* Contact List */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-4"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="surface p-6 sm:p-7"
             >
-              <h3
-                className="text-xl md:text-2xl font-semibold mb-6 font-mono"
-                style={{ color: "hsl(var(--foreground))" }}
-              >
-                Get In Touch
+              <p className="metric-label">Direct contact</p>
+              <h3 className="mt-4 text-2xl font-semibold text-white">
+                Reach out directly or use the contact form.
               </h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                I&apos;m especially interested in AI engineering, machine learning systems, research-driven prototypes,
+                and opportunities where product thinking matters as much as modeling.
+              </p>
+              <div className="section-divider" />
               <ContactList />
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.18 }}
+              className="surface p-6 sm:p-7"
             >
-              <h3
-                className="text-xl md:text-2xl font-semibold mb-6 font-mono"
-                style={{ color: "hsl(var(--foreground))" }}
-              >
-                Socials . . .
+              <p className="metric-label">Profiles</p>
+              <h3 className="mt-4 text-2xl font-semibold text-white">
+                Find me on the platforms I actually use.
               </h3>
               <ContactSocials />
             </motion.div>
@@ -95,27 +87,14 @@ const ContactItem: React.FC<ContactItemProps> = ({
   href,
 }) => {
   const content = (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="p-4 rounded-xl transition-all duration-300 hover:bg-white/5 group cursor-pointer border border-transparent hover:border-primary/20"
-    >
+    <motion.div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:border-primary/30 hover:bg-white/[0.05]">
       <div className="flex items-center space-x-4">
-        <motion.div
-          className="p-3 rounded-lg"
-          style={{ backgroundColor: "hsl(var(--primary) / 0.2)" }}
-          whileHover={{
-            scale: 1.1,
-            transition: { type: "spring", stiffness: 400, damping: 10 },
-          }}
-        >
-          <Icon className="w-6 h-6" style={{ color: "hsl(var(--primary))" }} />
-        </motion.div>
+        <div className="rounded-2xl bg-primary/10 p-3">
+          <Icon className="w-6 h-6 text-primary" />
+        </div>
         <div className="flex-1">
-          <p className="text-sm text-muted/80 mb-1">{label}</p>
-          <p className="font-medium group-hover:text-primary transition-colors duration-300">
-            {value}
-          </p>
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{label}</p>
+          <p className="mt-1 font-medium text-white">{value}</p>
         </div>
       </div>
     </motion.div>

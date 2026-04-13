@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 import { Navbar, Footer } from "@/components/common";
 import {
   Hero,
@@ -11,31 +9,22 @@ import {
   Projects,
   Contact,
 } from "@/components/sections";
-import { PreLoader, Background } from "@/components/common";
+import { Background } from "@/components/common";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadTimer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(loadTimer);
-  }, []);
-
-  if (loading) return <PreLoader />;
-
   return (
-    <div className="min-h-screen relative">
+    <div className="site-frame min-h-screen">
       <Background />
-        <Navbar />
+      <Navbar />
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
         <Experience />
         <Projects />
         <Contact />
-        <Footer />
-
-
+      </main>
+      <Footer />
     </div>
   );
 }
