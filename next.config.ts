@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "sidhartha-portfolio-three.vercel.app",
+        hostname: "aarab.vercel.app",
         port: "",
         pathname: "/**",
       },
@@ -71,27 +71,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/email",
-        destination: "mailto:Sidhartha1729@gmail.com",
+        destination: "mailto:aarab.nishchal@gmail.com",
         permanent: true,
       },
       {
         source: "/directresume",
-        destination: "/docs/Sidhartha_Pulluri_Resume.pdf",
+        destination: "/docs/Aarab_Nishchal_Resume.pdf",
         permanent: true,
       },
       {
         source: "/direct-resume",
-        destination: "/docs/Sidhartha_Pulluri_Resume.pdf",
+        destination: "/docs/Aarab_Nishchal_Resume.pdf",
         permanent: true,
       },
       {
         source: "/github",
-        destination: "https://github.com/SidharthaPulluri",
-        permanent: true,
-      },
-      {
-        source: "/linkedin",
-        destination: "https://www.linkedin.com/in/sidhartha-pulluri-7a9150238",
+        destination: "www.github.com/aarabii",
         permanent: true,
       },
     ];

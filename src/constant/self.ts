@@ -2,10 +2,10 @@ export const selfData = {
   name: "Sidhartha Pulluri",
   first_name: "Sidhartha",
   last_name: "Pulluri",
-  jobTitle: "Generative AI / ML Engineer",
+  jobTitle: "AI / ML Engineer",
   workFor: "The University of Texas at Dallas",
   current_location: {
-    city: "Northlake",
+    city: "Richardson",
     state: "Texas",
     country: "United States",
   },
@@ -14,37 +14,36 @@ export const selfData = {
     mm: 2,
     yyyy: 2004,
   },
-  email: "Sidhartha1729@gmail.com",
+  email: "Sidhartha.a.1729@gmail.com",
 
   roles: [
-    "Generative AI Engineer",
     "Machine Learning Engineer",
     "Computer Vision Researcher",
-    "NLP Engineer",
-    "Automation Systems Builder",
-    "Full-Stack AI Developer",
-    "Research-Driven Engineer",
+    "NLP Practitioner",
+    "AI Systems Builder",
+    "Deep Learning Engineer",
+    "Research-Oriented Developer",
   ],
 
   focus_areas: [
-    "LLM and conversational workflows",
-    "Computer vision and applied ML",
-    "Automation, deployment, and tooling",
+    "Applied AI systems",
+    "Computer vision pipelines",
+    "Automation and tooling",
   ],
 
-  desc: "I build repo-backed AI products across generative AI, computer vision, automation, and full-stack systems.",
+  desc: "I design and build intelligent systems that turn research into real-world AI products.",
 
-  bio: "I am a Computer Science graduate student at The University of Texas at Dallas focused on generative AI, machine learning, computer vision, and automation. I build production-minded systems that move from research ideas and model workflows into shipped applications.",
+  bio: "I am a Computer Science graduate student at The University of Texas at Dallas specializing in Artificial Intelligence, Machine Learning, Computer Vision, and NLP. I focus on building scalable, production-ready AI systems that bridge research and real-world applications.",
 
   about: [
-    "I am a Computer Science graduate student at The University of Texas at Dallas with hands-on experience across generative AI, machine learning, computer vision, and full-stack product development. My work centers on turning practical ideas into reliable software that people can actually use.",
-    "Across my shipped repositories, I have built a story-to-video generation pipeline, a QR-based lost-and-found platform, a deployable utilities hub with a full-stack todo workflow, and structured data tooling for medicinal herb research.",
-    "I enjoy working across the full stack of AI products: data preparation, model workflows, backend APIs, deployment, and user-facing experiences. I care about building systems that are both technically strong and useful in the real world.",
+    "I am a Computer Science graduate student at The University of Texas at Dallas with a strong foundation in AI, machine learning, computer vision, and natural language processing. My work focuses on translating advanced models into reliable, real-world systems.",
+    "I have designed and deployed end-to-end machine learning pipelines, including large-scale audio storytelling systems, computer vision models for medicinal plant recognition, and GPT-based conversational AI platforms optimized for performance and scalability.",
+    "Beyond engineering, I actively engage in research, technical leadership, and community-driven AI initiatives. I enjoy solving complex problems, experimenting with new architectures, and building systems that deliver measurable impact.",
   ],
 
   socials_username: {
     github: "SidharthaPulluri",
-    linkedin: "sidhartha-pulluri-7a9150238",
+    linkedin: "sidhartha-pulluri",
     twitter: "",
     instagram: "",
     facebook: "",
