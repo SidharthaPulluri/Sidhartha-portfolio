@@ -2,8 +2,8 @@ export const projectsData = [
   {
     name: "YouTube Shorts Story Generator",
     description:
-      "Built an end-to-end story-to-video pipeline that turns raw text into short-form vertical videos with AI narration, timed captions, and optional YouTube upload preparation for repeatable content production.",
-    impact: "Packaged a repeatable workflow for faster short-form content creation and publishing readiness.",
+      "Built and deployed a Flask-based story-to-video pipeline that converts raw text into 9:16 short-form videos with AI voice narration, timed captions, batch processing, and optional YouTube upload support.",
+    impact: "Turned content generation into a repeatable production workflow with web UI, CLI support, and cloud deployment readiness.",
     github_link: "https://github.com/SidharthaPulluri/Yt-shorts-story-generator",
     demo: "",
     tech: ["Python", "Flask", "Edge TTS", "Automation", "YouTube API"],
@@ -29,8 +29,8 @@ export const projectsData = [
   {
     name: "Returnly | QR Lost and Found Platform",
     description:
-      "Built and deployed a QR-powered lost-and-found platform that gives owners secure dashboards, persistent item tracking, and finder-friendly recovery flows for real-world item return scenarios.",
-    impact: "Shipped a live recovery flow that supports real scans, owner actions, and finder submissions in production.",
+      "Built and deployed a QR-powered lost-and-found platform with owner authentication, item dashboards, finder report flows, QR downloads, and persistent recovery workflows for real-world item return scenarios.",
+    impact: "Shipped a live Flask application with Vercel deployment and Postgres-backed production support for real scans and owner-managed recovery actions.",
     github_link: "https://github.com/SidharthaPulluri/Qr-Returnly-site",
     demo: "https://qr-returnly.vercel.app",
     tech: ["Python", "Flask", "Postgres", "QR Codes", "Vercel"],
@@ -38,8 +38,8 @@ export const projectsData = [
   {
     name: "Full-Stack To-Do Management System",
     description:
-      "Created a responsive task management experience with REST-backed persistence, clear CRUD workflows, and Vercel deployment support as part of a broader utilities platform.",
-    impact: "Integrated full-stack task handling into a deployed multi-utility product instead of keeping it as an isolated demo.",
+      "Created a responsive task management application with React and Vite, REST-backed persistence, CRUD workflows, and a Vercel serverless API integrated into a broader utilities platform.",
+    impact: "Extended a deployed multi-utility web hub with a full-stack task workflow instead of treating the project as a standalone demo.",
     github_link: "https://github.com/SidharthaPulluri/My-Utilities",
     demo: "https://sidhartha-utilities.vercel.app/todo",
     tech: ["React", "Vite", "Node.js", "REST API", "Vercel"],
@@ -56,8 +56,8 @@ export const projectsData = [
   {
     name: "Ayurvedic Herb Scraper",
     description:
-      "Built a structured scraping workflow around the Planet Ayurveda herbs directory to turn medicinal herb pages into analysis-ready CSV datasets for search, labeling, and downstream ML exploration.",
-    impact: "Created cleaner research data inputs for later analysis and ML experimentation.",
+      "Built a Python CLI scraper for the Planet Ayurveda herbs directory with retries, configurable scraping ranges, structured parsing, and CSV export for index and detailed medicinal herb datasets.",
+    impact: "Created cleaner, analysis-ready data inputs for downstream search, labeling, and medicinal plant ML experimentation.",
     github_link: "https://github.com/SidharthaPulluri/Ayurvedic-herb-scraper",
     demo: "",
     tech: ["Python", "Web Scraping", "Data Extraction"],

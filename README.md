@@ -4,6 +4,10 @@ This repository contains my personal portfolio showcasing applied work in **Arti
 
 The portfolio highlights projects that translate research and models into real-world applications, including computer vision systems, NLP pipelines, audio generation workflows, and scalable backend integrations.
 
+## Live Portfolio
+
+Visit the portfolio here: **[https://sidhartha-portfolio-three.vercel.app](https://sidhartha-portfolio-three.vercel.app)**
+
 ---
 
 ## 🔍 Overview
@@ -67,7 +71,7 @@ A PDF copy of my resume is included in this repository and accessible directly f
 
 ## 🌐 Live Portfolio
 
-> *(Add your Vercel deployment URL here once deployed)*
+**Portfolio Website:** [https://sidhartha-portfolio-three.vercel.app](https://sidhartha-portfolio-three.vercel.app)
 
 ---
 

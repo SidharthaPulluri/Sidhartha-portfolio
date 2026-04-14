@@ -40,16 +40,17 @@ export const skillsData: SkillsDataProps[] = [
     title: "Programming & Data",
     data: [
       { title: "Python", logoComponent: FaPython, color: "#3776AB" },
+      { title: "JavaScript", logoComponent: FaLaptopCode, color: "#F7DF1E" },
       { title: "C++", logoComponent: TbBrandCpp, color: "#00599C" },
       { title: "SQL", logoComponent: SiMysql, color: "#4479A1" },
     ],
   },
   {
-    title: "Machine Learning & AI",
+    title: "AI, ML & Data",
     data: [
-      { title: "Machine Learning", logoComponent: GiBrain, color: "#3F51B5" },
-      { title: "Deep Learning", logoComponent: GiBrain, color: "#673AB7" },
-      { title: "Neural Networks", logoComponent: GiBrain, color: "#512DA8" },
+      { title: "Generative AI", logoComponent: GiBrain, color: "#3F51B5" },
+      { title: "Machine Learning", logoComponent: GiBrain, color: "#673AB7" },
+      { title: "Deep Learning", logoComponent: GiBrain, color: "#512DA8" },
       { title: "Computer Vision", logoComponent: FaRobot, color: "#009688" },
       {
         title: "Natural Language Processing",
@@ -61,9 +62,10 @@ export const skillsData: SkillsDataProps[] = [
   {
     title: "Modeling & Systems",
     data: [
-      { title: "BERT / GPT", logoComponent: FaBookOpen, color: "#1E88E5" },
+      { title: "GPT Workflows", logoComponent: FaBookOpen, color: "#1E88E5" },
       { title: "EfficientNet / BiFPN", logoComponent: GiBrain, color: "#FF9800" },
       { title: "Audio & TTS Pipelines", logoComponent: FaRobot, color: "#9C27B0" },
+      { title: "Automation Pipelines", logoComponent: FaCodeBranch, color: "#E91E63" },
       {
         title: "Performance Optimization",
         logoComponent: FaGaugeHigh,
@@ -74,6 +76,7 @@ export const skillsData: SkillsDataProps[] = [
   {
     title: "APIs, Tools & Deployment",
     data: [
+      { title: "Flask", logoComponent: MdApi, color: "#5C2D91" },
       { title: "REST APIs", logoComponent: MdApi, color: "#5C2D91" },
       { title: "Postman", logoComponent: SiPostman, color: "#FF6C37" },
       { title: "Docker", logoComponent: SiDocker, color: "#2496ED" },
@@ -86,6 +89,7 @@ export const skillsData: SkillsDataProps[] = [
     data: [
       { title: "Git", logoComponent: FaGitAlt, color: "#F05032" },
       { title: "GitHub", logoComponent: FaGithub, color: "#d4d4d8" },
+      { title: "Deployment Workflows", logoComponent: FaTruckMoving, color: "#0A66C2" },
       {
         title: "Version Control",
         logoComponent: FaCodeBranch,
