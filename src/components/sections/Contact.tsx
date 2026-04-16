@@ -89,9 +89,9 @@ const ContactItem: React.FC<ContactItemProps> = ({
         <div className="rounded-2xl bg-primary/10 p-3">
           <Icon className="w-6 h-6 text-primary" />
         </div>
-        <div className="flex-1">
+        <div className="min-w-0 flex-1">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{label}</p>
-          <p className="mt-1 font-medium text-white">{value}</p>
+          <p className="mt-1 break-words text-sm font-medium text-white sm:text-base">{value}</p>
         </div>
       </div>
     </motion.div>
