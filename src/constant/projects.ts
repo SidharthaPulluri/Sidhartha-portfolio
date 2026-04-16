@@ -1,5 +1,14 @@
 export const projectsData = [
   {
+    name: "Sidhartha Utilities | Rule-Based Data Visualisation Tool",
+    description:
+      "Built an upload-first analytics workspace for structured files that explains datasets, recommends charts, surfaces insights, and exports dashboards using deterministic rules instead of AI or machine learning.",
+    impact: "Turned raw CSV, TSV, Excel, and JSON uploads into guided analysis flows with clearer onboarding, safer chart defaults, and repeatable outputs for non-technical users.",
+    github_link: "https://github.com/SidharthaPulluri/data-visualisation-tool",
+    demo: "https://data-visualisation-tool.vercel.app",
+    tech: ["Python", "Flask", "Pandas", "Matplotlib", "Rule-Based Analytics", "Vercel"],
+  },
+  {
     name: "YouTube Shorts Story Generator",
     description:
       "Built an end-to-end story-to-video pipeline that turns raw text into short-form vertical videos with AI narration, timed captions, and optional YouTube upload preparation for repeatable content production.",
