@@ -729,7 +729,8 @@ body {
 
 @layer components {
   .site-frame {
-    @apply relative isolate overflow-hidden;
+    @apply relative isolate;
+    overflow-x: clip;
   }
 
   .page-shell {

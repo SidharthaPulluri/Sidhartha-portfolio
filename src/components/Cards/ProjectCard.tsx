@@ -13,6 +13,7 @@ interface ProjectCardProps {
   impact?: string;
   github?: string;
   demo?: string;
+  paper?: string;
   tech: string[];
 }
 
@@ -23,6 +24,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   impact,
   github,
   demo,
+  paper,
   tech,
 }) => {
   const ref = useRef(null);
@@ -34,6 +36,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 
   const hasGithub = Boolean(github);
   const hasDemo = Boolean(demo);
+  const hasPaper = Boolean(paper);
 
   return (
     <motion.div
@@ -87,7 +90,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               ))}
             </div>
 
-            {(hasGithub || hasDemo) && (
+            {(hasGithub || hasDemo || hasPaper) && (
               <div className="flex flex-wrap gap-3">
                 {hasGithub && (
                   <Button
@@ -107,6 +110,19 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                     <Link href={demo!} target="_blank" rel="noopener noreferrer">
                       <FiExternalLink className="mr-2 h-4 w-4" />
                       Demo
+                    </Link>
+                  </Button>
+                )}
+                {hasPaper && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="rounded-full border-white/10 bg-white/5 px-4 hover:bg-white/10"
+                    asChild
+                  >
+                    <Link href={paper!} target="_blank" rel="noopener noreferrer">
+                      <FiExternalLink className="mr-2 h-4 w-4" />
+                      Research Paper
                     </Link>
                   </Button>
                 )}

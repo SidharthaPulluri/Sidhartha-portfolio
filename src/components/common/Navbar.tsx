@@ -12,6 +12,7 @@ const mainLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
+  { href: "#publications", label: "Publications" },
   { href: "#project", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];

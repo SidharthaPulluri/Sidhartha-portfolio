@@ -6,6 +6,7 @@ import {
   About,
   Skills,
   Experience,
+  Publications,
   Projects,
   Contact,
 } from "@/components/sections";
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Skills />
         <Experience />
+        <Publications />
         <Projects />
         <Contact />
       </main>

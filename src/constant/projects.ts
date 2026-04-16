@@ -11,10 +11,11 @@ export const projectsData = [
   {
     name: "Medicinal Leaf Recognition System",
     description:
-      "Developed a medicinal plant identification workflow using custom computer vision modeling, deployable inference pipelines, and research-driven evaluation for practical classification use cases.",
-    impact: "Focused on turning research-oriented plant recognition into a usable applied identification workflow.",
+      "Built a medicinal plant identification workflow around computer vision modeling, explainability, and therapeutic knowledge retrieval for practical species recognition in Indian medicinal plants.",
+    impact: "Extended the work into a coauthored journal publication on BiFPNet-based medicinal leaf identification with explainable AI and therapeutic usage support.",
     github_link: "",
     demo: "",
+    paper_link: "https://doi.org/10.1080/1206212X.2025.2608641",
     tech: ["PyTorch", "EfficientNet", "BiFPN", "Computer Vision", "Gradio"],
   },
   {
