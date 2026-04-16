@@ -1,25 +1,13 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { selfData } from "@/constant";
 import Link from "next/link";
 import { LuMapPinned } from "react-icons/lu";
 
 export const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-80px",
-    amount: 0.25,
-  });
-
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="section-shell"
-    >
+    <section id="about" className="section-shell">
       <div className="page-shell">
         <div className="mb-12 max-w-3xl">
           <span className="eyebrow">About</span>
@@ -33,10 +21,10 @@ export const About = () => {
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <motion.div
             className="surface p-7 sm:p-8"
-            initial={{ opacity: 0, x: -32 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={false}
+            animate={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 0.65,
+              duration: 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
@@ -69,11 +57,10 @@ export const About = () => {
 
           <motion.div
             className="space-y-8"
-            initial={{ opacity: 0, x: 32 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={false}
+            animate={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 0.65,
-              delay: 0.2,
+              duration: 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
@@ -83,11 +70,10 @@ export const About = () => {
                 <motion.p
                   key={index}
                   className="text-sm sm:text-base"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  initial={false}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.45,
-                    delay: 0.25 + index * 0.1,
+                    duration: 0.2,
                     ease: "easeOut",
                   }}
                 >

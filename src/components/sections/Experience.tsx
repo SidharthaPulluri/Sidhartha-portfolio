@@ -1,29 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { experienceData } from "@/constant";
 import { ExperienceCard } from "../Cards";
 
 export function Experience() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-80px",
-    amount: 0.15,
-  });
-
   return (
-    <section
-      ref={ref}
-      id="experience"
-      className="section-shell"
-    >
+    <section id="experience" className="section-shell">
       <div className="page-shell">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 max-w-3xl"
         >
           <span className="eyebrow">Experience</span>

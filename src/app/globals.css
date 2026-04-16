@@ -733,6 +733,20 @@ body {
     overflow-x: clip;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   .page-shell {
     @apply relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }

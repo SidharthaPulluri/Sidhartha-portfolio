@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { FiExternalLink } from "react-icons/fi";
 
 import { publicationsData } from "@/constant";
@@ -10,20 +9,13 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
 export function Publications() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-80px",
-    amount: 0.15,
-  });
-
   return (
-    <section ref={ref} id="publications" className="section-shell">
+    <section id="publications" className="section-shell">
       <div className="page-shell">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 max-w-3xl"
         >
           <span className="eyebrow">Publications</span>
@@ -38,11 +30,10 @@ export function Publications() {
           {publicationsData.map((publication, index) => (
             <motion.article
               key={publication.doi}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={false}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.45,
-                delay: index * 0.08,
+                duration: 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="surface p-6 sm:p-7"

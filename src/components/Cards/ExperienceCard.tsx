@@ -1,5 +1,5 @@
-import { FC, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FC } from "react";
+import { motion } from "framer-motion";
 import { Badge } from "../ui/badge";
 
 interface ExperienceCardProps {
@@ -19,23 +19,13 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
   technologies,
   index = 0,
 }) => {
-  const ref = useRef(null);
-
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-50px",
-    amount: 0.2,
-  });
-
   return (
     <motion.div
-      ref={ref}
       key={index}
-      initial={{ opacity: 0, y: 28 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={false}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.45,
-        delay: index * 0.08,
+        duration: 0.2,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="relative pl-8 sm:pl-10"
@@ -44,9 +34,9 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
       <article className="surface p-6 sm:p-7">
         <motion.div
           className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
-          initial={{ opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: index * 0.08 + 0.08 }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <div>
             <p className="metric-label">{year}</p>
@@ -58,9 +48,9 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
 
         <motion.ul
           className="mt-6 space-y-3"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.35, delay: index * 0.08 + 0.14 }}
+          initial={false}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
         >
           {description.map((point, pointIndex) => (
             <li key={pointIndex} className="flex items-start gap-3 text-sm leading-7 text-muted-foreground sm:text-[0.96rem]">
@@ -72,9 +62,9 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
 
         <motion.div
           className="mt-6 flex flex-wrap gap-2"
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: index * 0.08 + 0.18 }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
         >
           {technologies.map((tech) => (
             <Badge
