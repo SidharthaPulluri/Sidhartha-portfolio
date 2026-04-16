@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FC } from "react";
-import { motion } from "framer-motion";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { FaGithub } from "react-icons/fa6";
@@ -32,16 +31,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   const hasPaper = Boolean(paper);
 
   return (
-    <motion.div
-      key={title}
-      initial={false}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="group"
-    >
+    <div className="group">
       <article className="surface p-6 sm:p-7">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-4">
@@ -122,6 +112,6 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 };
