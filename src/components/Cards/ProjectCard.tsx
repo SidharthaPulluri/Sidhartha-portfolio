@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FC, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FC } from "react";
+import { motion } from "framer-motion";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { FaGithub } from "react-icons/fa6";
@@ -27,26 +27,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   paper,
   tech,
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-50px",
-    amount: 0.2,
-  });
-
   const hasGithub = Boolean(github);
   const hasDemo = Boolean(demo);
   const hasPaper = Boolean(paper);
 
   return (
     <motion.div
-      ref={ref}
       key={title}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={false}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.45,
-        delay: index * 0.08,
+        duration: 0.2,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="group"

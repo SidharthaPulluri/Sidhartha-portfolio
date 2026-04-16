@@ -17,10 +17,9 @@ export const Contact = () => {
     >
       <div className="page-shell">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
           className="mb-12 max-w-3xl"
         >
           <span className="eyebrow">Contact</span>
@@ -35,10 +34,9 @@ export const Contact = () => {
 
           <div className="space-y-8">
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.1 }}
+              initial={false}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.2 }}
               className="surface p-6 sm:p-7"
             >
               <p className="metric-label">Direct contact</p>
@@ -54,10 +52,9 @@ export const Contact = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.18 }}
+              initial={false}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.2 }}
               className="surface p-6 sm:p-7"
             >
               <p className="metric-label">Profiles</p>

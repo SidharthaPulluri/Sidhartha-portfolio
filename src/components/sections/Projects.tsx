@@ -1,45 +1,22 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { ProjectCard } from "../Cards";
 import { projectsData } from "@/constant/";
 
 export const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-80px",
-    amount: 0.15,
-  });
-
   return (
-    <section
-      ref={ref}
-      id="project"
-      className="section-shell"
-    >
+    <section id="project" className="section-shell">
       <div className="page-shell">
-        <motion.div
-          className="mb-12 max-w-3xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="mb-12 max-w-3xl">
           <span className="eyebrow">Projects</span>
           <h2 className="section-title mt-5">Selected work across AI systems, automation, and applied software.</h2>
           <p className="section-lead mt-5">
             These projects reflect how I approach end-to-end problem solving: understand the use case, build the
             model or workflow, validate it carefully, then shape it into something practical and usable.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="space-y-5"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.15 }}
-        >
+        <div className="space-y-5">
           {projectsData.map((proj, index) => (
             <ProjectCard
               key={proj.name}
@@ -53,7 +30,7 @@ export const Projects = () => {
               tech={proj.tech}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

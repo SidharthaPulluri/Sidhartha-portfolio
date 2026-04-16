@@ -70,12 +70,10 @@ const ContactSocialItem = ({
 }) => {
   return (
     <motion.li
-      whileInView={{ opacity: 1, y: 0 }}
-      initial={{ opacity: 0, y: 12 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={false}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.35,
-        delay: index * 0.06,
+        duration: 0.2,
       }}
     >
       <Link
