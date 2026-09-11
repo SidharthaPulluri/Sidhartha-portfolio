@@ -1,157 +1,49 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
+import { FiActivity, FiArrowDown, FiArrowUpRight, FiMusic, FiPackage } from "react-icons/fi";
+import { selfData } from "@/constant/self";
 
-import { Button } from "@/components/ui/button";
-import { selfData } from "@/constant";
-import { mono } from "@/app/fonts";
+const builds = [
+  { name: "Medico", detail: "A clearer path from symptoms to care.", href: "https://carematch-india.vercel.app", Icon: FiActivity, bg: "#e3f1e9", color: "#28624c" },
+  { name: "Returnly", detail: "Lost things. A way back home.", href: "https://qr-returnly.vercel.app", Icon: FiPackage, bg: "#e5edf9", color: "#365d94" },
+  { name: "TuneVault", detail: "Your music, wherever you are.", href: "https://tunevault-offline.vercel.app", Icon: FiMusic, bg: "#faeadc", color: "#905128" },
+];
 
-export const Hero = () => {
-  return (
-    <section
-      id="top"
-      className="section-shell flex min-h-screen items-center pt-28 sm:pt-32"
-    >
-      <div className="page-shell">
-        <motion.div
-          className="grid items-end gap-14 lg:grid-cols-[1.25fr_0.75fr]"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="space-y-8">
-            <motion.div
-              className="space-y-5"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <span className="eyebrow">AI / ML Engineer Portfolio</span>
-              <div className="space-y-4">
-                <p className={`${mono.className} text-sm uppercase tracking-[0.34em] text-primary/90`}>
-                  {selfData.roles.slice(0, 3).join(" | ")}
-                </p>
-                <h1 className="font-inter text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white sm:text-6xl lg:text-[6.2rem]">
-                  {selfData.name}
-                </h1>
-                <p className="max-w-3xl text-2xl font-medium leading-tight text-white sm:text-3xl lg:text-[2.5rem]">
-                  Building production-ready AI systems from research-driven ideas.
-                </p>
-              </div>
-              <p className="section-lead max-w-2xl">
-                {selfData.bio}
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="surface-muted flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:justify-between"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.16 }}
-            >
-              <div className="space-y-2">
-                <p className="metric-label">Currently focused on</p>
-                <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-                  Applied product work where machine learning, automation, and reliable delivery all matter.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3 sm:max-w-[24rem] sm:justify-end">
-                {selfData.focus_areas.map((item) => (
-                  <span key={item} className="info-chip">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="flex flex-col gap-4 sm:flex-row"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Button asChild size="lg" className="rounded-full px-8">
-                <Link href="/resume">
-                  View Resume
-                  <FiArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full border-white/10 bg-white/5 px-8 hover:bg-white/10">
-                <a href="#project">See Projects</a>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              className="grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div>
-                <p className="metric-label">Base</p>
-                <p className="mt-2 text-base text-foreground">
-                  Richardson, Texas
-                </p>
-              </div>
-              <div>
-                <p className="metric-label">Focus</p>
-                <p className="mt-2 text-base text-foreground">
-                  Vision, NLP, ML systems
-                </p>
-              </div>
-              <div>
-                <p className="metric-label">Working style</p>
-                <p className="mt-2 text-base text-foreground">
-                  Research, prototyping, deployment
-                </p>
-              </div>
-            </motion.div>
+export const Hero = () => (
+  <section id="top" className="hero">
+    <div className="page-shell">
+      <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+        <div>
+          <span className="eyebrow">AI engineer & curious builder</span>
+          <h1 className="hero-title mt-7">A little research.<br /><em>A lot of building.</em></h1>
+          <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">
+            I&apos;m <strong className="font-semibold text-foreground">{selfData.name}</strong>, a CS graduate student at UT Dallas. I turn models, experiments, and everyday problems into useful products.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#project" className="primary-action">Explore my work <FiArrowDown aria-hidden="true" /></a>
+            <Link href="/resume" className="secondary-action">View résumé <FiArrowUpRight aria-hidden="true" /></Link>
           </div>
-
-          <motion.div
-            className="surface p-7 sm:p-8"
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <div className="space-y-8">
-              <div>
-                <p className="metric-label">What I do best</p>
-                <div className="section-divider" />
-              </div>
-
-              <div className="space-y-1">
-                {[
-                  ["Machine learning", "Train and ship applied models"],
-                  ["Computer vision", "Build image pipelines and deploy inference"],
-                  ["LLM systems", "Design usable NLP and agent workflows"],
-                  ["Production delivery", "Turn prototypes into reliable products"],
-                ].map(([label, value]) => (
-                  <div key={label} className="metric-line">
-                    <span className="metric-label">{label}</span>
-                    <span className="metric-value">{value}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="surface-muted p-5">
-                <p className="metric-label">Current positioning</p>
-                <p className="mt-3 text-lg leading-8 text-foreground">
-                  {selfData.desc}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {selfData.roles.slice(0, 4).map((role) => (
-                  <span key={role} className="info-chip">
-                    {role}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+          <p className="hero-note mt-6">Applied AI · Computer vision · Software that works</p>
+        </div>
+        <div className="build-board">
+          <div className="relative mb-6 flex items-center justify-between">
+            <span className="metric-label">From my workbench</span>
+            <span className="rounded-full border border-primary/15 px-2.5 py-1 text-[0.65rem] font-semibold text-primary">IDEAS → PRODUCTS</span>
+          </div>
+          <div className="relative space-y-4">
+            {builds.map(({name,detail,href,Icon,bg,color}) => <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="board-card" aria-label={`Visit ${name} website`}>
+              <span className="board-icon" style={{background:bg,color}}><Icon aria-hidden="true" /></span>
+              <span className="min-w-0 flex-1"><span className="block text-lg font-semibold tracking-tight">{name}</span><span className="mt-1 block text-xs leading-5 text-muted-foreground">{detail}</span></span>
+              <FiArrowUpRight className="shrink-0 text-muted-foreground" aria-hidden="true" />
+            </a>)}
+          </div>
+          <div className="relative mt-6 flex items-center gap-2 text-xs text-muted-foreground"><span className="h-1.5 w-1.5 rounded-full bg-primary" /> Small ideas. Real, working websites.</div>
+        </div>
       </div>
-    </section>
-  );
-};
+      <div className="hero-meta">
+        <p><span>Based in</span>Richardson, Texas</p>
+        <p><span>Currently studying at</span>The University of Texas at Dallas</p>
+        <p><span>At the intersection of</span>Research, engineering & product</p>
+      </div>
+    </div>
+  </section>
+);

@@ -44,13 +44,12 @@ export const ContactSocials = () => {
 
   return (
     <ul className="mt-6 flex flex-wrap gap-3">
-      {socialLinks.map((social, index) => (
+      {socialLinks.map((social) => (
         <ContactSocialItem
           key={social.label}
           Icon={social.Icon}
           link={social.link}
           label={social.label}
-          index={index}
         />
       ))}
     </ul>
@@ -61,12 +60,10 @@ const ContactSocialItem = ({
   Icon,
   link,
   label,
-  index,
 }: {
   Icon: IconType;
   link: string;
   label: string;
-  index: number;
 }) => {
   return (
     <motion.li
@@ -80,7 +77,7 @@ const ContactSocialItem = ({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-foreground transition hover:border-primary/30 hover:bg-white/[0.08]"
+        className="inline-flex items-center gap-3 rounded-full border border-border bg-muted/60 px-4 py-2 text-sm text-foreground transition hover:border-primary/30 hover:bg-muted/60"
       >
         <Icon className="h-4 w-4 text-primary" />
         {label}

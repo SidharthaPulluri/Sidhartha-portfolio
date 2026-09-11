@@ -19,7 +19,7 @@ export function Publications() {
           className="mb-12 max-w-3xl"
         >
           <span className="eyebrow">Publications</span>
-          <h2 className="section-title mt-5">Research output that extends beyond prototypes into published work.</h2>
+          <h2 className="section-title mt-5">Research, in print.</h2>
           <p className="section-lead mt-5">
             I value projects that can stand up as both working systems and credible research. This publication is the
             strongest example of that bridge in my portfolio.
@@ -42,10 +42,10 @@ export function Publications() {
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="metric-label">Publication {String(index + 1).padStart(2, "0")}</span>
-                    <span className="h-px flex-1 bg-white/10" />
+                    <span className="h-px flex-1 bg-muted/60" />
                   </div>
 
-                  <h3 className="text-2xl font-semibold leading-tight text-white sm:text-[1.8rem]">
+                  <h3 className="text-2xl font-semibold leading-tight text-foreground sm:text-[1.8rem]">
                     {publication.title}
                   </h3>
 
@@ -54,7 +54,7 @@ export function Publications() {
                       <Badge
                         key={tag}
                         variant="outline"
-                        className="rounded-full border-white/10 bg-white/[0.03] px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
+                        className="rounded-full border-border bg-muted/60 px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
                       >
                         {tag}
                       </Badge>

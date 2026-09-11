@@ -1,226 +1,32 @@
-"use client";
+import { Navbar, Footer } from "@/components/common";
+import { FiArrowUpRight, FiDownload } from "react-icons/fi";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Navbar, Footer, Background } from "@/components/common";
-import { nasalization } from "@/app/fonts";
-import { PDFErrorBoundary } from "@/components/PDFErrorBoundary";
-import {
-  HiDownload,
-  HiOutlineArrowsExpand,
-  HiExternalLink,
-} from "react-icons/hi";
-
-interface HTMLIFrameElementWithFullscreen extends HTMLIFrameElement {
-  webkitRequestFullscreen?: () => Promise<void>;
-  msRequestFullscreen?: () => Promise<void>;
-}
-
-interface DocumentWithFullscreen extends Document {
-  webkitExitFullscreen?: () => Promise<void>;
-  msExitFullscreen?: () => Promise<void>;
-}
-
-
+const PDF_URL = "/docs/Sidhartha_Pulluri_Resume.pdf";
+const WORD_URL = "/docs/Sidhartha_Pulluri_Resume.docx";
 
 export default function Resume() {
-
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const PDF_URL = "docs/Sidhartha_Pulluri_Resume.pdf";
-  const PDF_PREVIEW_URL = `${PDF_URL}#toolbar=0&navpanes=0&scrollbar=1&view=FitV&zoom=85`;
-
-
-
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
-
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
-    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
-    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
-    document.addEventListener("MSFullscreenChange", handleFullscreenChange);
-
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-      document.removeEventListener(
-        "webkitfullscreenchange",
-        handleFullscreenChange
-      );
-      document.removeEventListener(
-        "mozfullscreenchange",
-        handleFullscreenChange
-      );
-      document.removeEventListener(
-        "MSFullscreenChange",
-        handleFullscreenChange
-      );
-    };
-  }, []);
-
-
-
-  const toggleFullscreen = () => {
-    if (!isFullscreen) {
-      const iframe = document.querySelector(
-        "iframe"
-      ) as HTMLIFrameElementWithFullscreen;
-      if (iframe?.requestFullscreen) {
-        iframe.requestFullscreen();
-        setIsFullscreen(true);
-      } else if (iframe?.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-        setIsFullscreen(true);
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if ((document as DocumentWithFullscreen).webkitExitFullscreen) {
-        (document as DocumentWithFullscreen).webkitExitFullscreen?.();
-      } else if ((document as DocumentWithFullscreen).msExitFullscreen) {
-        (document as DocumentWithFullscreen).msExitFullscreen?.();
-      }
-      setIsFullscreen(false);
-    }
-  };
-
   return (
-    <div className={`min-h-screen selection:bg-primary/20 ${nasalization.className}`}>
-      <Background />
+    <div className="min-h-screen">
       <Navbar />
-
-      <div className="container mx-auto max-w-6xl px-4 pt-32 pb-20">
-        <motion.div
-          className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-            <div className="text-center md:text-left max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-secondary mb-2">
-                Resume
-              </h1>
-              <p className="text-muted-foreground text-sm sm:text-base">
-                View a contained preview here, or open the PDF in a new tab for the full document.
-              </p>
-            </div>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
-              onClick={toggleFullscreen}
-              className="group relative flex items-center gap-2 px-5 py-3 rounded-xl overflow-hidden transition-all duration-300 border border-secondary/30 bg-card/30 hover:bg-secondary/10"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 8px 25px hsl(var(--secondary) / 0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
-                <HiOutlineArrowsExpand className="w-4 h-4 text-secondary relative z-10 pointer-events-none" />
-                <span className="text-foreground font-medium relative z-10 pointer-events-none">
-                  {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-                </span>
-              </motion.button>
-
-              <motion.a
-                href={PDF_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center gap-2 px-5 py-3 rounded-xl overflow-hidden transition-all duration-300 border border-secondary/30 bg-card/30 hover:bg-secondary/10"
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: "hsl(var(--secondary) / 0.5)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                <HiExternalLink className="w-4 h-4 text-secondary pointer-events-none" />
-                <span className="text-foreground font-medium pointer-events-none">
-                  Open in New Tab
-                </span>
-              </motion.a>
-
-              <motion.a
-                href={PDF_URL}
-                download="Sidhartha_Pulluri_Resume.pdf"
-                className="group relative flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden transition-all duration-300 font-medium text-primary-foreground"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%)",
-                  boxShadow: "0 8px 25px hsl(var(--primary) / 0.3)",
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 12px 35px hsl(var(--primary) / 0.4)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.3 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
-                <HiDownload className="w-4 h-4 relative z-10 pointer-events-none" />
-                <span className="relative z-10 pointer-events-none">Download PDF</span>
-              </motion.a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative z-10 mx-auto w-full max-w-[980px] overflow-hidden rounded-3xl shadow-2xl"
-            initial={{ opacity: 0, y: 60, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              duration: 1,
-              delay: 1.4,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-card/20 to-card/30 backdrop-blur-xl pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 rounded-3xl pointer-events-none" />
-            <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-3xl bg-clip-border pointer-events-none" />
-
-            <PDFErrorBoundary pdfUrl={PDF_URL}>
-              <motion.div
-                className="pdf-container relative w-full overflow-hidden bg-white/95 backdrop-blur-sm rounded-3xl"
-                style={{ height: "780px" }}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1.6 }}
-              >
-                <div className="pdf-viewer">
-                  <div
-                    className="flex justify-center items-start min-h-full p-4 sm:p-6"
-                  >
-                    <iframe
-                      src={PDF_PREVIEW_URL}
-                      width="100%"
-                      height="730px"
-                      className="border-0 shadow-lg rounded-2xl"
-                      title="Resume PDF"
-                      style={{
-                        maxWidth: "920px",
-                        width: "100%",
-                        minHeight: "620px",
-                        background: "#ffffff",
-                      }}
-                      allow="fullscreen"
-                    />
-                  </div>
-                  </div>
-
-              </motion.div>
-            </PDFErrorBoundary>
-          </motion.div>
+      <main id="main-content" className="page-shell py-14 sm:py-20">
+        <div className="mb-10 flex flex-col gap-7">
+          <div>
+            <p className="eyebrow mb-5">Experience & projects</p>
+            <h1 className="section-title mb-4">My résumé.</h1>
+            <p className="section-lead">My education, applied AI research, and latest web and Android projects, together in two pages.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href={PDF_URL} download="Sidhartha_Pulluri_Resume.pdf" className="primary-action">Download PDF <FiDownload aria-hidden="true" /></a>
+            <a href={WORD_URL} download="Sidhartha_Pulluri_Resume.docx" className="secondary-action">Download Word <FiDownload aria-hidden="true" /></a>
+            <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="secondary-action">Open PDF <FiArrowUpRight aria-hidden="true" /></a>
+          </div>
         </div>
-
-        <Footer />
-
+        <div className="overflow-hidden rounded-2xl border bg-white p-2 sm:p-4">
+          <iframe src={`${PDF_URL}#view=FitH`} title="Sidhartha Pulluri résumé PDF" className="h-[78vh] min-h-[560px] w-full border-0 bg-white" />
+        </div>
+        <p className="mt-4 text-sm text-muted-foreground">If the preview is unavailable on your device, use Open PDF or download a copy above.</p>
+      </main>
+      <Footer />
     </div>
   );
 }

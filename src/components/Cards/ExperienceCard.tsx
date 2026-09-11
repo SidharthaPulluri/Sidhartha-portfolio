@@ -40,7 +40,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
         >
           <div>
             <p className="metric-label">{year}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">{role}</h3>
+            <h3 className="mt-3 text-2xl font-semibold text-foreground">{role}</h3>
             <p className="mt-1 text-base text-primary">{company}</p>
           </div>
           <span className="info-chip self-start">{technologies[0]}</span>
@@ -70,7 +70,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
             <Badge
               key={tech}
               variant="outline"
-              className="rounded-full border-white/10 bg-white/[0.03] px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
+              className="rounded-full border-border bg-muted/60 px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
             >
               {tech}
             </Badge>

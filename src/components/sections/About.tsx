@@ -11,7 +11,7 @@ export const About = () => {
       <div className="page-shell">
         <div className="mb-12 max-w-3xl">
           <span className="eyebrow">About</span>
-          <h2 className="section-title mt-5">Research-minded engineering with a product mindset.</h2>
+          <h2 className="section-title mt-5">Curiosity is the starting point.</h2>
           <p className="section-lead mt-5">
             I work at the intersection of model quality, system design, and practical delivery. The goal is not just
             to train something impressive, but to build something people can actually use.
@@ -87,7 +87,7 @@ export const About = () => {
                   href={`https://www.google.com/maps/place/${selfData.current_location.city}+${selfData.current_location.state}+${selfData.current_location.country}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="info-chip hover:text-white"
+                  className="info-chip hover:text-primary"
                 >
                   <LuMapPinned className="h-4 w-4 text-primary" />
                   {selfData.current_location.city}, {selfData.current_location.state}

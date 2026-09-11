@@ -1,176 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { RiMenu4Fill, RiCloseLargeFill } from "react-icons/ri";
-import { Button } from "../ui/button";
-import { selfData } from "@/constant";
-import { mono } from "@/app/fonts";
+import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
 
-const mainLinks = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#publications", label: "Publications" },
-  { href: "#project", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+const links = [
+  ["#project", "Work"], ["#about", "About"], ["#skills", "Skills"],
+  ["#experience", "Experience"], ["#publications", "Research"], ["#contact", "Contact"],
 ];
 
 export const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const isResumePage = pathname === "/resume";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Optimize state updates to avoid unnecessary re-renders
-      if (currentScrollY > 100 && !isScrolled) {
-        setIsScrolled(true);
-      } else if (currentScrollY <= 100 && isScrolled) {
-        setIsScrolled(false);
-      }
-
-      if (currentScrollY < lastScrollY.current || currentScrollY < 100) {
-        if (!isVisible) setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        if (isVisible) {
-          setIsVisible(false);
-          setIsMenuOpen(false);
-        }
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isScrolled, isVisible]);
+  const sectionHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
 
   return (
-    <nav
-      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        isScrolled ? "px-3 sm:px-4" : "px-3 sm:px-4"
-      } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
-    >
-      <div
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6 ${
-          isScrolled ? "shadow-lg" : "shadow-none"
-        }`}
-        style={{
-          background: "hsl(var(--glass-bg-light))",
-          borderColor: "hsl(var(--glass-border))",
-        }}
-      >
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
-            SP
-          </div>
-          <div className="leading-none">
-            <span className="font-inter block text-lg font-semibold tracking-tight text-white sm:text-xl">
-              {selfData.name}
-            </span>
-            <span className={`${mono.className} hidden text-[0.72rem] uppercase tracking-[0.24em] text-muted-foreground sm:block`}>
-              AI / ML Portfolio
-            </span>
-          </div>
+    <header className="site-nav">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:p-3">Skip to content</a>
+      <nav className="page-shell nav-inner" aria-label="Main navigation">
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Sidhartha Pulluri home">
+          <span className="brand-mark" aria-hidden="true">sp.</span>
+          <span className="text-sm font-semibold tracking-tight sm:text-base">Sidhartha Pulluri<span className="text-primary">.</span></span>
         </Link>
-
-        {!isResumePage && (
-          <div className="hidden items-center gap-6 lg:flex">
-            {mainLinks.map((link) => (
-              <a key={link.href} href={link.href} className="anchor-link">
-                {link.label}
-              </a>
-            ))}
-          </div>
-        )}
-
-        <div className="hidden items-center gap-3 sm:flex">
-          {!isResumePage && (
-            <Button variant="ghost" asChild className="rounded-full px-4 text-sm">
-              <a href="#contact">Hire Me</a>
-            </Button>
-          )}
-          <Button
-            variant={isResumePage ? "default" : "outline"}
-            asChild
-            className="rounded-full px-5"
-          >
-            {isResumePage ? (
-              <a href="/docs/Sidhartha_Pulluri_Resume.pdf" download="Sidhartha_Pulluri_Resume.pdf">
-                Download Resume
-              </a>
-            ) : (
-              <Link href="/resume">Resume</Link>
-            )}
-          </Button>
+        <div className="hidden items-center gap-6 lg:flex">
+          {links.map(([hash,label]) => <a key={hash} href={sectionHref(hash)} className="anchor-link">{label}</a>)}
         </div>
-
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="sm:hidden rounded-full border border-white/10 p-2 text-foreground transition hover:bg-white/5"
-          aria-label="Toggle mobile menu"
-        >
-          {isMenuOpen ? <RiCloseLargeFill size={18} /> : <RiMenu4Fill size={18} />}
-        </button>
-      </div>
-
-      <div
-        className={`mx-auto mt-3 max-w-6xl overflow-hidden rounded-[1.5rem] border backdrop-blur-xl transition-all duration-300 sm:hidden ${
-          isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0 border-transparent"
-        }`}
-        style={{
-          background: "hsl(var(--glass-bg-light))",
-          borderColor: isMenuOpen ? "hsl(var(--glass-border))" : "transparent",
-        }}
-      >
-        <div className="space-y-2 px-4 py-4">
-          {!isResumePage &&
-            mainLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-          {!isResumePage && (
-            <a
-              href="#contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-white"
-            >
-              Hire Me
-            </a>
-          )}
-          {isResumePage ? (
-            <a
-              href="/docs/Sidhartha_Pulluri_Resume.pdf"
-              download="Sidhartha_Pulluri_Resume.pdf"
-              onClick={() => setIsMenuOpen(false)}
-              className="block rounded-xl bg-primary px-3 py-2 text-sm font-medium text-primary-foreground"
-            >
-              Download Resume
-            </a>
-          ) : (
-            <Link
-              href="/resume"
-              onClick={() => setIsMenuOpen(false)}
-              className="block rounded-xl bg-primary px-3 py-2 text-sm font-medium text-primary-foreground"
-            >
-              View Resume
-            </Link>
-          )}
+        <div className="flex items-center gap-3">
+          <Link href="/resume" className="hidden min-h-10 items-center gap-2 rounded-lg border bg-white px-4 text-sm font-medium sm:inline-flex">Résumé <FiArrowUpRight aria-hidden="true" /></Link>
+          <button type="button" className="flex h-11 w-11 items-center justify-center rounded-lg border lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"}>
+            {open ? <FiX size={21} /> : <FiMenu size={21} />}
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+      {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="page-shell border-t pb-5 pt-3 lg:hidden" onKeyDown={(event) => { if (event.key === "Escape") setOpen(false); }}>
+        <div className="grid grid-cols-2 gap-2">
+          {links.map(([hash,label]) => <a key={hash} href={sectionHref(hash)} onClick={(event) => {
+            setOpen(false);
+            if (pathname === "/") {
+              event.preventDefault();
+              window.history.replaceState(window.history.state, "", hash);
+              requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" }));
+            }
+          }} className="rounded-lg p-3 text-sm font-medium hover:bg-muted">{label}</a>)}
+        </div>
+        <Link href="/resume" onClick={() => setOpen(false)} className="primary-action mt-3 w-full">View résumé <FiArrowUpRight /></Link>
+      </nav>}
+    </header>
   );
 };

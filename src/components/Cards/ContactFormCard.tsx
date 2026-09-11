@@ -100,7 +100,7 @@ export const ContactFormCard = () => {
       className="surface h-full p-6 sm:p-7"
     >
       <p className="metric-label">Send a message</p>
-      <h3 className="mt-4 text-2xl font-semibold text-white">
+      <h3 className="mt-4 text-2xl font-semibold text-foreground">
         Tell me what you are building.
       </h3>
       <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
@@ -114,7 +114,9 @@ export const ContactFormCard = () => {
           <input
             required
             type="text"
-            placeholder="Your Name"
+            aria-label="Your name"
+            autoComplete="name"
+            placeholder="Your name"
             name="senderName"
             onChange={handleChange}
             value={formValues.senderName}
@@ -123,7 +125,9 @@ export const ContactFormCard = () => {
           <input
             required
             type="email"
-            placeholder="Your Email"
+            aria-label="Your email"
+            autoComplete="email"
+            placeholder="Your email"
             name="senderEmail"
             onChange={handleChange}
             value={formValues.senderEmail}
@@ -133,6 +137,7 @@ export const ContactFormCard = () => {
 
         <select
           required
+          aria-label="Reason for contacting"
           name="reasonToContact"
           onChange={handleChange}
           value={formValues.reasonToContact}
@@ -159,7 +164,8 @@ export const ContactFormCard = () => {
         </select>
 
         <textarea
-          placeholder="Your Message"
+          aria-label="Your message"
+          placeholder="Tell me about your idea..."
           rows={5}
           name="senderMsg"
           onChange={handleChange}

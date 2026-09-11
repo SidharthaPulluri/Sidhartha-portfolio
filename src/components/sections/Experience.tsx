@@ -15,14 +15,14 @@ export function Experience() {
           className="mb-12 max-w-3xl"
         >
           <span className="eyebrow">Experience</span>
-          <h2 className="section-title mt-5">Professional work, research, and leadership highlights.</h2>
+          <h2 className="section-title mt-5">The journey so far.</h2>
           <p className="section-lead mt-5">
             A short timeline of the environments where I have led, shipped, researched, and competed.
           </p>
         </motion.div>
 
         <div className="relative pl-4 sm:pl-6">
-          <div className="absolute bottom-0 left-1 top-2 w-px bg-white/10 sm:left-2" />
+          <div className="absolute bottom-0 left-1 top-2 w-px bg-muted/60 sm:left-2" />
           <div className="space-y-6">
             {experienceData.map((exp, index) => (
               <ExperienceCard

@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     title: selfData.name,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
   },
   formatDetection: {
     telephone: false,
@@ -136,7 +136,7 @@ export default function RootLayout({
           }}
         />
         {children}
-        <Toaster position="bottom-right" richColors closeButton />
+        <Toaster position="bottom-right" theme="light" richColors closeButton />
         <Analytics />
       </body>
     </html>

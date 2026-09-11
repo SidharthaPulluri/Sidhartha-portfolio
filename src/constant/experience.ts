@@ -31,10 +31,10 @@ export const experienceData = [
     ],
   },
   {
-    role: "Machine Learning Hackathon – 2nd Place",
+    role: "Machine Learning Hackathon – 3rd Place",
     year: "2024",
     description: [
-      "Secured 2nd place in a college-level machine learning hackathon by developing an ML-based solution under strict time constraints.",
+      "Secured 3rd place in a college-level machine learning hackathon by developing an ML-based solution under strict time constraints.",
       "Designed and evaluated predictive models using classical machine learning techniques to address a real-world problem statement.",
       "Collaborated in a small team to rapidly prototype, validate results, and present technical findings to a judging panel.",
     ],

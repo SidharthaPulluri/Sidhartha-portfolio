@@ -4,8 +4,8 @@
   "description": "Sidhartha Pulluri's portfolio featuring AI, full-stack, and developer tooling work.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#08111d",
-  "theme_color": "#0f172a",
+  "background_color": "#f9f8f5",
+  "theme_color": "#f9f8f5",
   "icons": [
     {
       "src": "/favicon.svg",

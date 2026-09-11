@@ -9,10 +9,9 @@ export const Skills = () => {
       <div className="page-shell">
         <div className="mb-12 max-w-3xl">
           <span className="eyebrow">Skills</span>
-          <h2 className="section-title mt-5">Technical strengths organized around how I actually build.</h2>
+          <h2 className="section-title mt-5">Tools I build with.</h2>
           <p className="section-lead mt-5">
-            Instead of a moving logo wall, this section highlights the areas I use most often when I build,
-            evaluate, and ship AI systems.
+            The languages, frameworks, and practices behind my projects.
           </p>
         </div>
 
@@ -32,7 +31,7 @@ export const Skills = () => {
                 {category.data.map((skill) => (
                   <span
                     key={skill.title}
-                    className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-foreground"
+                    className="inline-flex items-center gap-3 rounded-full border border-border bg-muted/60 px-4 py-2 text-sm text-foreground"
                   >
                     <skill.logoComponent />
                     {skill.title}

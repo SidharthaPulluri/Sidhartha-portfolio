@@ -1,117 +1,42 @@
-import Link from "next/link";
-import { FC } from "react";
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
+import { FiActivity, FiArrowUpRight, FiBox, FiCode, FiFileText, FiGrid, FiHeadphones, FiHeart, FiMusic, FiPlay, FiTrendingUp } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa6";
-import { FiExternalLink } from "react-icons/fi";
 
 interface ProjectCardProps {
-  index: number;
-  title: string;
-  desc: string;
-  impact?: string;
-  github?: string;
-  demo?: string;
-  paper?: string;
-  tech: string[];
+  index: number; title: string; desc: string; impact?: string;
+  github?: string; demo?: string; paper?: string; tech: string[];
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({
-  index,
-  title,
-  desc,
-  impact,
-  github,
-  demo,
-  paper,
-  tech,
-}) => {
-  const hasGithub = Boolean(github);
-  const hasDemo = Boolean(demo);
-  const hasPaper = Boolean(paper);
+function coverFor(title: string) {
+  if (title.startsWith("Medico")) return {brand:"Medico", label:"HEALTHCARE NAVIGATION", bg:"#e4eee7", ink:"#275541", Icon:FiActivity};
+  if (title.startsWith("First Move")) return {brand:"First Move", label:"A MORE PERSONAL INVITATION", bg:"#f4e5ed", ink:"#7b3a60", Icon:FiHeart};
+  if (title.startsWith("TuneVault")) return {brand:"TuneVault", label:"YOUR MUSIC. OFFLINE.", bg:"#f7eadb", ink:"#854f26", Icon:FiMusic};
+  if (title.startsWith("Nestly")) return {brand:"Nestly", label:"A PLACE FOR EVERYTHING", bg:"#ebe7da", ink:"#6a5d32", Icon:FiBox};
+  if (title.startsWith("Returnly")) return {brand:"Returnly", label:"HELP LOST THINGS GET HOME", bg:"#e4ecf7", ink:"#34578c", Icon:FiBox};
+  if (title.includes("Visualisation")) return {brand:"Data, made clear.", label:"RULE-BASED ANALYTICS", bg:"#e7e5f5", ink:"#53467f", Icon:FiTrendingUp};
+  if (title.startsWith("Sidhartha Utilities")) return {brand:"Utilities", label:"TOOLS FOR EVERYDAY WORK", bg:"#dfeeee", ink:"#2f6664", Icon:FiGrid};
+  if (title.includes("YouTube")) return {brand:title.includes("Remote") ? "Shorts / Remote" : "Story → Video", label:"CONTENT & AUTOMATION", bg:"#f4e6df", ink:"#854a37", Icon:FiPlay};
+  if (title.includes("Medicinal") || title.includes("Herb")) return {brand:title.includes("Medicinal") ? "BiFPNet" : "Herb Research", label:"COMPUTER VISION & DATA", bg:"#e5eddf", ink:"#4b643d", Icon:FiFileText};
+  if (title.includes("TTS")) return {brand:"Stories, spoken.", label:"AUDIO AUTOMATION", bg:"#e5edf2", ink:"#3d5f75", Icon:FiHeadphones};
+  return {brand:"Conversational AI", label:"LANGUAGE & INTELLIGENCE", bg:"#eae7f0", ink:"#605276", Icon:FiCode};
+}
 
-  return (
-    <div className="group">
-      <article className="surface p-6 sm:p-7">
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-4">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="metric-label">Project {String(index + 1).padStart(2, "0")}</span>
-              <span className="h-px flex-1 bg-white/10" />
-            </div>
-
-            <h3 className="text-2xl font-semibold leading-tight text-white sm:text-[1.8rem]">
-              {title}
-            </h3>
-
-            <p className="max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
-              {desc}
-            </p>
-
-            {impact && (
-              <div className="surface-muted p-4">
-                <p className="metric-label">Project impact</p>
-                <p className="mt-2 text-sm leading-7 text-foreground sm:text-[0.98rem]">
-                  {impact}
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-5">
-            <div className="flex flex-wrap gap-2">
-              {tech.map((techItem) => (
-                <Badge
-                  key={techItem}
-                  variant="outline"
-                  className="rounded-full border-white/10 bg-white/[0.03] px-3 py-1 text-[0.72rem] uppercase tracking-[0.16em] text-foreground"
-                >
-                  {techItem}
-                </Badge>
-              ))}
-            </div>
-
-            {(hasGithub || hasDemo || hasPaper) && (
-              <div className="flex flex-wrap gap-3">
-                {hasGithub && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full border-white/10 bg-white/5 px-4 hover:bg-white/10"
-                    asChild
-                  >
-                    <a href={github} target="_blank" rel="noopener noreferrer">
-                      <FaGithub className="mr-2 h-4 w-4" />
-                      Repository
-                    </a>
-                  </Button>
-                )}
-                {hasDemo && (
-                  <Button size="sm" className="rounded-full px-4" asChild>
-                    <Link href={demo!} target="_blank" rel="noopener noreferrer">
-                      <FiExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Link>
-                  </Button>
-                )}
-                {hasPaper && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full border-white/10 bg-white/5 px-4 hover:bg-white/10"
-                    asChild
-                  >
-                    <Link href={paper!} target="_blank" rel="noopener noreferrer">
-                      <FiExternalLink className="mr-2 h-4 w-4" />
-                      Research Paper
-                    </Link>
-                  </Button>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </article>
+export const ProjectCard = ({index,title,desc,impact,github,demo,paper,tech}: ProjectCardProps) => {
+  const cover = coverFor(title);
+  return <article className="work-card">
+    <div className="work-cover" style={{background:cover.bg,color:cover.ink}} aria-hidden="true">
+      <div><p className="mb-4 text-[0.6rem] font-semibold tracking-[.16em]">{cover.label}</p><p className="work-brand">{cover.brand}</p></div>
+      <span className="work-symbol"><cover.Icon /></span>
     </div>
-  );
+    <div className="work-content">
+      <div className="mb-4 flex items-center justify-between text-xs text-muted-foreground"><span>{String(index+1).padStart(2,"0")} / PROJECT</span><span>{demo ? "Live website" : paper ? "Published research" : "Code & experiments"}</span></div>
+      <h3 className="text-xl font-semibold leading-snug tracking-tight sm:text-2xl">{title}</h3>
+      <p className="mt-3 text-sm leading-7 text-muted-foreground">{desc}</p>
+      <div className="work-tags">{tech.map(item => <span key={item}>{item}</span>)}</div>
+      {impact && <details className="my-5 text-sm"><summary className="cursor-pointer py-2 font-medium text-muted-foreground">More about this project</summary><p className="mt-2 border-l-2 border-primary/20 pl-4 text-sm leading-7 text-muted-foreground">{impact}</p></details>}
+      <div className="work-actions">
+        {demo ? <a href={demo} target="_blank" rel="noopener noreferrer" className="text-link" aria-label={`Visit ${title} website`}>Visit website <FiArrowUpRight aria-hidden="true" /></a> : paper ? <a href={paper} target="_blank" rel="noopener noreferrer" className="text-link">Read the paper <FiArrowUpRight aria-hidden="true" /></a> : <span className="text-xs text-muted-foreground">Research & development</span>}
+        {github && <a href={github} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 text-muted-foreground hover:text-primary" aria-label={`View ${title} on GitHub`}><FaGithub aria-hidden="true" /> Source code</a>}
+      </div>
+    </div>
+  </article>;
 };

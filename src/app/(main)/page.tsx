@@ -17,13 +17,13 @@ export default function Home() {
     <div className="site-frame min-h-screen">
       <Background />
       <Navbar />
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         <Hero />
+        <Projects />
         <About />
         <Skills />
         <Experience />
         <Publications />
-        <Projects />
         <Contact />
       </main>
       <Footer />
