@@ -51,5 +51,5 @@ export const selfData = {
     snapchat: "",
     telegram: "",
   },
-  site_url: "https://sidhartha-portfolio-three.vercel.app",
+  site_url: "https://sidhartha-pulluri-portfolio.vercel.app",
 };

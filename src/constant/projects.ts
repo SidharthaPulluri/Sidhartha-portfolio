@@ -1,6 +1,42 @@
 export const projectsData = [
   {
-    name: "Sidhartha Utilities | Rule-Based Data Visualisation Tool",
+    name: "Medico | AI Healthcare Navigation",
+    description:
+      "Built a symptom-to-care workflow that asks follow-up questions, checks urgency, recommends a specialty, and helps users compare nearby hospitals by estimated cash cost, distance, and reputation.",
+    impact: "Connected symptom routing and hospital discovery in one guided experience, with an evaluation harness for checking routing quality.",
+    github_link: "https://github.com/SidharthaPulluri/Medico",
+    demo: "https://carematch-india.vercel.app",
+    tech: ["Python", "Naive Bayes", "Gemini", "Hugging Face", "Google Maps / Places"],
+  },
+  {
+    name: "First Move | Hidden Invitations",
+    description:
+      "Created a web app that hides an invitation and reveal photo inside a downloadable PNG. Recipients upload the image and answer a personal question to unlock the message.",
+    impact: "Turned a personal invitation into an interactive sharing experience with encrypted content, custom covers, and a responsive reveal screen.",
+    github_link: "",
+    demo: "https://first-move-ashen.vercel.app",
+    tech: ["Python", "FastAPI", "JavaScript", "AES-GCM", "Vercel"],
+  },
+  {
+    name: "TuneVault | Offline Android Music Player",
+    description:
+      "Built a native Android music player that finds songs on the device and in selected folders, then organizes albums, playlists, search, and playback in an offline listening experience.",
+    impact: "Shipped an app and download website for listening to a personal music library without an account or streaming service.",
+    github_link: "",
+    demo: "https://tunevault-offline.vercel.app",
+    tech: ["Kotlin", "Jetpack Compose", "Media3 / ExoPlayer", "MediaStore", "Material 3"],
+  },
+  {
+    name: "Nestly | QR Container Organizer",
+    description:
+      "Created a container organization app with printable QR labels that open a focused view of each container and its contents.",
+    impact: "Connected physical storage to a searchable digital inventory, making it easier to locate and manage stored items.",
+    github_link: "",
+    demo: "https://nestly-qr.vercel.app",
+    tech: ["React", "TypeScript", "Vite", "Supabase", "QR Codes"],
+  },
+  {
+    name: "Rule-Based Data Visualisation Tool",
     description:
       "Built an upload-first analytics workspace for structured files that explains datasets, recommends charts, surfaces insights, and exports dashboards using deterministic rules instead of AI or machine learning.",
     impact: "Turned raw CSV, TSV, Excel, and JSON uploads into guided analysis flows with clearer onboarding, safer chart defaults, and repeatable outputs for non-technical users.",
@@ -46,13 +82,22 @@ export const projectsData = [
     tech: ["Python", "Flask", "Postgres", "QR Codes", "Vercel"],
   },
   {
-    name: "Full-Stack To-Do Management System",
+    name: "Sidhartha Utilities | Everyday Web Tools",
     description:
-      "Created a responsive task management experience with REST-backed persistence, clear CRUD workflows, and Vercel deployment support as part of a broader utilities platform.",
+      "Created a multi-utility web platform with a responsive task manager, REST-backed persistence, and clear create, update, and completion workflows.",
     impact: "Integrated full-stack task handling into a deployed multi-utility product instead of keeping it as an isolated demo.",
     github_link: "https://github.com/SidharthaPulluri/My-Utilities",
-    demo: "https://sidhartha-utilities.vercel.app/todo",
+    demo: "https://sidhartha-utilities.vercel.app",
     tech: ["React", "Vite", "Node.js", "REST API", "Vercel"],
+  },
+  {
+    name: "YouTube Shorts Remote Panel",
+    description:
+      "Published a browser-based remote panel for the YouTube Shorts workflow, providing a web entry point for the content production tools.",
+    impact: "Made the remote panel accessible through a dedicated website.",
+    github_link: "",
+    demo: "https://yt-shorts-remote-panel.vercel.app",
+    tech: ["Web Application", "Vercel"],
   },
   {
     name: "Reddit Stories to TTS Automation",

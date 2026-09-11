@@ -71,22 +71,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/email",
-        destination: "mailto:aarab.nishchal@gmail.com",
+        destination: "mailto:Sidhartha.a.1729@gmail.com",
         permanent: true,
       },
       {
         source: "/directresume",
-        destination: "/docs/Aarab_Nishchal_Resume.pdf",
+        destination: "/docs/Sidhartha_Pulluri_Resume.pdf",
         permanent: true,
       },
       {
         source: "/direct-resume",
-        destination: "/docs/Aarab_Nishchal_Resume.pdf",
+        destination: "/docs/Sidhartha_Pulluri_Resume.pdf",
         permanent: true,
       },
       {
         source: "/github",
-        destination: "www.github.com/aarabii",
+        destination: "https://github.com/SidharthaPulluri",
         permanent: true,
       },
     ];

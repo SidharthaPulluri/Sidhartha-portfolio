@@ -20,7 +20,20 @@ This portfolio serves as a central place to explore my projects, skills, and exp
 
 ---
 
-## 🚀 Featured Work
+## 🚀 Live Projects
+
+| Project | What it does | Website | Public source |
+| --- | --- | --- | --- |
+| **Medico** | Symptom-to-care navigation and nearby hospital comparison. | [Visit website](https://carematch-india.vercel.app) | [GitHub](https://github.com/SidharthaPulluri/Medico) |
+| **Returnly** | QR tags and recovery workflows for lost belongings. | [Visit website](https://qr-returnly.vercel.app) | [GitHub](https://github.com/SidharthaPulluri/Qr-Returnly-site) |
+| **First Move** | Hidden invitations and photo reveals inside shareable PNGs. | [Visit website](https://first-move-ashen.vercel.app) | — |
+| **TuneVault** | Offline Android music player with a website and APK download. | [Visit website](https://tunevault-offline.vercel.app) | — |
+| **Nestly** | QR labels for organizing containers and their contents. | [Visit website](https://nestly-qr.vercel.app) | — |
+| **Data Visualisation Tool** | Upload structured data for rule-based charts, insights, and exports. | [Visit website](https://data-visualisation-tool.vercel.app) | [GitHub](https://github.com/SidharthaPulluri/data-visualisation-tool) |
+| **Sidhartha Utilities** | Everyday web tools, including a full-stack task manager. | [Visit website](https://sidhartha-utilities.vercel.app) | [GitHub](https://github.com/SidharthaPulluri/My-Utilities) |
+| **YouTube Shorts Remote Panel** | Web entry point for the Shorts content workflow. | [Visit website](https://yt-shorts-remote-panel.vercel.app) | — |
+
+## Featured Research & Other Work
 
 Some of the work showcased in this portfolio includes:
 
@@ -67,7 +80,7 @@ A PDF copy of my resume is included in this repository and accessible directly f
 
 ## 🌐 Live Portfolio
 
-> *(Add your Vercel deployment URL here once deployed)*
+[Visit the portfolio](https://sidhartha-pulluri-portfolio.vercel.app/)
 
 ---
 
