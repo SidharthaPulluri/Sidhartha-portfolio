@@ -27,7 +27,7 @@ export const Navbar = () => {
           {links.map(([hash,label]) => <a key={hash} href={sectionHref(hash)} className="anchor-link">{label}</a>)}
         </div>
         <div className="flex items-center gap-3">
-          <Link href="/resume" className="hidden min-h-10 items-center gap-2 rounded-lg border bg-white px-4 text-sm font-medium sm:inline-flex">Résumé <FiArrowUpRight aria-hidden="true" /></Link>
+          <Link href="/resume" className="hidden min-h-10 items-center gap-2 rounded-lg border bg-white px-4 text-sm font-medium sm:inline-flex">Resume <FiArrowUpRight aria-hidden="true" /></Link>
           <button type="button" className="flex h-11 w-11 items-center justify-center rounded-lg border lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"}>
             {open ? <FiX size={21} /> : <FiMenu size={21} />}
           </button>
@@ -44,7 +44,7 @@ export const Navbar = () => {
             }
           }} className="rounded-lg p-3 text-sm font-medium hover:bg-muted">{label}</a>)}
         </div>
-        <Link href="/resume" onClick={() => setOpen(false)} className="primary-action mt-3 w-full">View résumé <FiArrowUpRight /></Link>
+        <Link href="/resume" onClick={() => setOpen(false)} className="primary-action mt-3 w-full">View resume <FiArrowUpRight /></Link>
       </nav>}
     </header>
   );

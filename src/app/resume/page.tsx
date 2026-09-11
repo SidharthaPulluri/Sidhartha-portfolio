@@ -12,7 +12,7 @@ export default function Resume() {
         <div className="mb-10 flex flex-col gap-7">
           <div>
             <p className="eyebrow mb-5">Experience & projects</p>
-            <h1 className="section-title mb-4">My résumé.</h1>
+            <h1 className="section-title mb-4">My resume.</h1>
             <p className="section-lead">My education, applied AI research, and latest web and Android projects, together in two pages.</p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -22,7 +22,7 @@ export default function Resume() {
           </div>
         </div>
         <div className="overflow-hidden rounded-2xl border bg-white p-2 sm:p-4">
-          <iframe src={`${PDF_URL}#view=FitH`} title="Sidhartha Pulluri résumé PDF" className="h-[78vh] min-h-[560px] w-full border-0 bg-white" />
+          <iframe src={`${PDF_URL}#view=FitH`} title="Sidhartha Pulluri resume PDF" className="h-[78vh] min-h-[560px] w-full border-0 bg-white" />
         </div>
         <p className="mt-4 text-sm text-muted-foreground">If the preview is unavailable on your device, use Open PDF or download a copy above.</p>
       </main>

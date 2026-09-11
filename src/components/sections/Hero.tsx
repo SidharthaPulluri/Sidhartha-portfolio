@@ -20,7 +20,7 @@ export const Hero = () => (
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#project" className="primary-action">Explore my work <FiArrowDown aria-hidden="true" /></a>
-            <Link href="/resume" className="secondary-action">View résumé <FiArrowUpRight aria-hidden="true" /></Link>
+            <Link href="/resume" className="secondary-action">View resume <FiArrowUpRight aria-hidden="true" /></Link>
           </div>
           <p className="hero-note mt-6">Applied AI · Computer vision · Software that works</p>
         </div>
